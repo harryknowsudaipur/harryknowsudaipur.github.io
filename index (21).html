@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Harry Knows Udaipur — Private Guide, Driver & Fixer</title>
+<meta name="description" content="A born-and-raised Udaipur local as your guide, chauffeur, photographer and food scout for the day. City walks, food trails, and day trips to Kumbhalgarh, Ranakpur and Chittorgarh.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0B2E2C;
+    --lake:#1D5C56;
+    --lake-light:#2E7A72;
+    --whitewash:#F3EEE1;
+    --whitewash-dim:#E9E2D0;
+    --brass:#C9932E;
+    --brass-light:#E4B15A;
+    --clay:#B5583C;
+    --text-on-dark:#EFEAE0;
+    --text-on-light:#142524;
+    --radius:14px;
+    --max:1120px;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Inter', sans-serif;
+    background:var(--whitewash);
+    color:var(--text-on-light);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.display{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    line-height:1.08;
+    letter-spacing:-0.01em;
+  }
+  a{color:inherit; text-decoration:none;}
+  .wrap{max-width:var(--max); margin:0 auto; padding:0 24px;}
+  img{max-width:100%; display:block;}
+
+  /* ---------- NAV ---------- */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(243,238,225,0.92);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid rgba(11,46,44,0.08);
+  }
+  nav{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:16px 24px; max-width:var(--max); margin:0 auto;
+  }
+  .brand{font-family:'Fraunces', serif; font-weight:600; font-size:1.15rem; letter-spacing:-0.01em;}
+  .brand span{color:var(--brass);}
+  .nav-links{display:flex; gap:28px; font-size:0.92rem; font-weight:500;}
+  .nav-links a:hover{color:var(--lake);}
+  .nav-cta{
+    background:var(--lake); color:var(--text-on-dark);
+    padding:10px 18px; border-radius:100px; font-size:0.88rem; font-weight:600;
+  }
+  .nav-cta:hover{background:var(--ink);}
+  @media (max-width:720px){ .nav-links{display:none;} }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    background:radial-gradient(120% 140% at 15% 0%, #16504A 0%, var(--ink) 62%);
+    color:var(--text-on-dark);
+    padding:88px 0 40px;
+    overflow:hidden;
+  }
+  .hero-grid{
+    display:grid; grid-template-columns:1.1fr 0.9fr; gap:48px; align-items:center;
+  }
+  @media (max-width:900px){ .hero-grid{grid-template-columns:1fr;} }
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:8px;
+    font-size:0.78rem; letter-spacing:0.08em; text-transform:uppercase;
+    color:var(--brass-light); font-weight:600; margin-bottom:18px;
+  }
+  .eyebrow::before{content:""; width:22px; height:1px; background:var(--brass-light);}
+  .hero h1{font-size:clamp(2.3rem, 4.6vw, 3.6rem); max-width:11ch;}
+  .hero h1 em{font-style:italic; color:var(--brass-light); font-weight:500;}
+  .hero p.lead{
+    margin-top:20px; font-size:1.08rem; max-width:46ch; color:#CFE4E0;
+  }
+  .hero-ctas{display:flex; gap:14px; margin-top:32px; flex-wrap:wrap;}
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    padding:14px 24px; border-radius:100px; font-weight:600; font-size:0.95rem;
+    transition:transform .15s ease, background .15s ease;
+  }
+  .btn:hover{transform:translateY(-1px);}
+  .btn-primary{background:var(--brass); color:var(--ink);}
+  .btn-primary:hover{background:var(--brass-light);}
+  .btn-ghost{border:1px solid rgba(239,234,224,0.35); color:var(--text-on-dark);}
+  .btn-ghost:hover{border-color:var(--text-on-dark);}
+
+  /* signature: sun-arc day timeline */
+  .arc-card{
+    background:rgba(239,234,224,0.05);
+    border:1px solid rgba(239,234,224,0.14);
+    border-radius:20px;
+    padding:26px 22px 18px;
+  }
+  .arc-label{font-size:0.75rem; letter-spacing:0.08em; text-transform:uppercase; color:#9CC4BE; margin-bottom:6px;}
+  .arc-title{font-family:'Fraunces', serif; font-size:1.05rem; margin-bottom:14px; color:var(--text-on-dark);}
+  .arc-svg{width:100%; height:auto;}
+  .arc-stop-label{font-size:9.5px; fill:#CFE4E0; font-family:'Inter', sans-serif;}
+  .arc-stop-time{font-size:8.5px; fill:#7FA69F; font-family:'Inter', sans-serif;}
+
+  /* ---------- TRUST / ABOUT ---------- */
+  .about{padding:88px 0; background:var(--whitewash);}
+  .about-grid{display:grid; grid-template-columns:0.85fr 1.15fr; gap:56px; align-items:start;}
+  @media (max-width:840px){ .about-grid{grid-template-columns:1fr;} }
+  .section-kicker{
+    font-size:0.78rem; letter-spacing:0.08em; text-transform:uppercase;
+    color:var(--clay); font-weight:700; margin-bottom:14px;
+  }
+  .about h2{font-size:clamp(1.7rem,3vw,2.3rem); margin-bottom:18px; max-width:14ch;}
+  .about p{max-width:56ch; color:#3A4B49; margin-bottom:14px;}
+  .honesty-note{
+    margin-top:22px; padding:16px 18px; border-left:3px solid var(--lake);
+    background:rgba(29,92,86,0.06); border-radius:0 10px 10px 0; font-size:0.92rem; color:#28433F;
+  }
+  .credentials{display:flex; flex-direction:column; gap:18px;}
+  .cred{display:flex; gap:14px; align-items:flex-start;}
+  .cred-dot{
+    width:34px; height:34px; border-radius:50%; background:var(--lake);
+    flex-shrink:0; display:flex; align-items:center; justify-content:center;
+    color:var(--whitewash); font-family:'Fraunces', serif; font-weight:600; font-size:0.95rem;
+  }
+  .cred h4{font-size:0.98rem; margin-bottom:3px;}
+  .cred p{font-size:0.88rem; color:#5A6D6A; max-width:42ch;}
+
+  /* ---------- SERVICES ---------- */
+  .services{padding:88px 0; background:var(--ink); color:var(--text-on-dark);}
+  .services-head{display:flex; justify-content:space-between; align-items:flex-end; gap:24px; margin-bottom:44px; flex-wrap:wrap;}
+  .services .section-kicker{color:var(--brass-light);}
+  .services h2{font-size:clamp(1.7rem,3vw,2.3rem); max-width:16ch; color:var(--text-on-dark);}
+  .services-head p{color:#A9C4BF; max-width:38ch; font-size:0.94rem;}
+  .cards{display:grid; grid-template-columns:repeat(3, 1fr); gap:20px;}
+  @media (max-width:900px){ .cards{grid-template-columns:repeat(2,1fr);} }
+  @media (max-width:620px){ .cards{grid-template-columns:1fr;} }
+  .card{
+    background:rgba(239,234,224,0.04);
+    border:1px solid rgba(239,234,224,0.12);
+    border-radius:16px; padding:24px 22px;
+    transition:border-color .15s ease, background .15s ease;
+  }
+  .card:hover{border-color:var(--brass); background:rgba(239,234,224,0.06);}
+  .card .tag{font-size:0.72rem; letter-spacing:0.06em; text-transform:uppercase; color:var(--brass-light); font-weight:600;}
+  .card h3{font-family:'Fraunces', serif; font-size:1.15rem; margin:10px 0 8px; color:var(--text-on-dark);}
+  .card p{font-size:0.88rem; color:#B7CBC7; margin-bottom:14px;}
+  .card .meta{display:flex; justify-content:space-between; align-items:center; font-size:0.85rem; padding-top:12px; border-top:1px solid rgba(239,234,224,0.1);}
+  .card .price{font-weight:700; color:var(--brass-light); font-family:'Fraunces', serif; font-size:1.02rem;}
+  .card .dur{color:#7FA69F;}
+
+  /* ---------- HOW IT WORKS ---------- */
+  .flow{padding:88px 0; background:var(--whitewash);}
+  .flow-head{max-width:52ch; margin-bottom:48px;}
+  .flow-head h2{font-size:clamp(1.7rem,3vw,2.3rem);}
+  .flow-head p{color:#3A4B49; margin-top:14px;}
+  .flow-steps{display:grid; grid-template-columns:repeat(4,1fr); gap:0; position:relative;}
+  @media (max-width:840px){ .flow-steps{grid-template-columns:1fr; gap:28px;} }
+  .flow-step{position:relative; padding-right:24px;}
+  .flow-step:not(:last-child)::after{
+    content:""; position:absolute; top:19px; right:-2px; width:calc(100% - 40px);
+    border-top:1.5px dashed rgba(197,105,42,0.4);
+  }
+  @media (max-width:840px){ .flow-step:not(:last-child)::after{display:none;} }
+  .flow-num{
+    width:38px; height:38px; border-radius:50%; border:1.5px solid var(--clay);
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Fraunces', serif; font-weight:600; color:var(--clay); margin-bottom:16px; background:var(--whitewash);
+  }
+  .flow-step h4{font-size:1.02rem; margin-bottom:6px;}
+  .flow-step p{font-size:0.88rem; color:#5A6D6A;}
+
+  /* ---------- REVIEWS PLACEHOLDER ---------- */
+  .reviews{padding:80px 0; background:var(--whitewash-dim);}
+  .reviews h2{font-size:clamp(1.5rem,2.6vw,2rem); margin-bottom:8px;}
+  .reviews .section-kicker{margin-bottom:12px;}
+  .reviews-note{font-size:0.9rem; color:#5A6D6A; max-width:60ch; margin-bottom:32px;}
+  .review-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:20px;}
+  @media (max-width:840px){ .review-grid{grid-template-columns:1fr;} }
+  .review-card{
+    background:var(--whitewash); border:1px dashed rgba(20,37,36,0.25);
+    border-radius:14px; padding:22px; font-size:0.9rem; color:#5A6D6A;
+  }
+  .review-card .stars{color:var(--brass); margin-bottom:10px; font-size:0.85rem;}
+
+  /* ---------- CONTACT ---------- */
+  .contact{padding:90px 0; background:var(--lake); color:var(--text-on-dark);}
+  .contact-grid{display:grid; grid-template-columns:1fr 1fr; gap:56px;}
+  @media (max-width:840px){ .contact-grid{grid-template-columns:1fr;} }
+  .contact h2{font-size:clamp(1.7rem,3vw,2.3rem); color:var(--text-on-dark); max-width:14ch;}
+  .contact p.lead{color:#D9EAE7; margin-top:14px; max-width:44ch; font-size:0.98rem;}
+  .contact-methods{display:flex; flex-direction:column; gap:14px; margin-top:28px;}
+  .cmethod{
+    display:flex; align-items:center; gap:12px; padding:14px 16px;
+    background:rgba(239,234,224,0.08); border-radius:12px; font-size:0.92rem; font-weight:500;
+  }
+  .cmethod:hover{background:rgba(239,234,224,0.14);}
+  form{display:flex; flex-direction:column; gap:14px;}
+  label{font-size:0.82rem; color:#D9EAE7; margin-bottom:4px; display:block;}
+  input, select, textarea{
+    width:100%; padding:13px 14px; border-radius:10px; border:1px solid rgba(239,234,224,0.25);
+    background:rgba(239,234,224,0.06); color:var(--text-on-dark); font-family:'Inter', sans-serif; font-size:0.94rem;
+  }
+  input::placeholder, textarea::placeholder{color:#9CC4BE;}
+  textarea{resize:vertical; min-height:90px;}
+  .form-row{display:grid; grid-template-columns:1fr 1fr; gap:14px;}
+  @media (max-width:520px){ .form-row{grid-template-columns:1fr;} }
+  button.submit{
+    margin-top:6px; background:var(--brass); color:var(--ink); border:none;
+    padding:15px 20px; border-radius:10px; font-weight:700; font-size:0.96rem; cursor:pointer;
+  }
+  button.submit:hover{background:var(--brass-light);}
+  .form-note{font-size:0.78rem; color:#A9C4BF; margin-top:-4px;}
+
+  /* ---------- FOOTER ---------- */
+  footer{background:var(--ink); color:#7FA69F; padding:34px 0; font-size:0.85rem;}
+  .footer-grid{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;}
+  footer a:hover{color:var(--brass-light);}
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="wrap">
+    <div class="brand">Harry Knows <span>Udaipur</span></div>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#services">Tours</a>
+      <a href="#how">How it works</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <a class="nav-cta" href="#contact">Check availability</a>
+  </nav>
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">City of Lakes, from someone who grew up on it</div>
+      <h1>Udaipur, <em>the way</em> a local would show family</h1>
+      <p class="lead">Your day, planned and driven end-to-end &mdash; palaces and forts, the food stalls no listicle finds, and the golden hour spot no one will tell you about. One person, start to finish: guide, host, photographer and fixer.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-primary" href="#contact">Plan my day &rarr;</a>
+        <a class="btn btn-ghost" href="https://wa.me/916376091117?text=Hi!%20I%27d%20like%20to%20plan%20a%20day%20in%20Udaipur." target="_blank" rel="noopener">Message on WhatsApp</a>
+      </div>
+    </div>
+
+    <div class="arc-card">
+      <div class="arc-label">A day, mapped over the lake</div>
+      <div class="arc-title">Sunrise on Pichola to dinner under the palace lights</div>
+      <svg class="arc-svg" viewBox="0 0 460 220" xmlns="http://www.w3.org/2000/svg">
+        <path d="M 20 190 Q 230 -10 440 190" stroke="#3A7A72" stroke-width="1.5" fill="none" stroke-dasharray="2 5"/>
+        <!-- stops along the arc -->
+        <g>
+          <circle cx="20" cy="190" r="4.5" fill="#E4B15A"/>
+          <text x="20" y="172" class="arc-stop-time" text-anchor="middle">7:00</text>
+          <text x="20" y="208" class="arc-stop-label" text-anchor="middle">Ghat &amp; boat</text>
+        </g>
+        <g>
+          <circle cx="125" cy="88" r="4.5" fill="#E4B15A"/>
+          <text x="125" y="70" class="arc-stop-time" text-anchor="middle">9:30</text>
+          <text x="125" y="106" class="arc-stop-label" text-anchor="middle">City Palace</text>
+        </g>
+        <g>
+          <circle cx="230" cy="35" r="5" fill="#E4B15A"/>
+          <text x="230" y="17" class="arc-stop-time" text-anchor="middle">12:30</text>
+          <text x="230" y="53" class="arc-stop-label" text-anchor="middle">Street food lane</text>
+        </g>
+        <g>
+          <circle cx="335" cy="88" r="4.5" fill="#E4B15A"/>
+          <text x="335" y="70" class="arc-stop-time" text-anchor="middle">15:30</text>
+          <text x="335" y="106" class="arc-stop-label" text-anchor="middle">Bazaar &amp; havelis</text>
+        </g>
+        <g>
+          <circle cx="440" cy="190" r="4.5" fill="#E4B15A"/>
+          <text x="440" y="172" class="arc-stop-time" text-anchor="middle">19:00</text>
+          <text x="440" y="208" class="arc-stop-label" text-anchor="middle">Sunset &amp; dinner</text>
+        </g>
+        <path d="M 20 190 Q 230 -10 440 190" stroke="#E4B15A" stroke-width="2" fill="none" stroke-dasharray="0 0" opacity="0.0"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ABOUT ================= -->
+<section class="about" id="about">
+  <div class="wrap about-grid">
+    <div>
+      <div class="section-kicker">Who's showing you around</div>
+      <h2>Not an agency. One local, who's done this for 1.5 years and counting.</h2>
+      <p>I grew up in Udaipur's lanes, not in a training manual. I've spent the last year and a half guiding travellers through the city on foot, by boat and by road &mdash; the palaces, yes, but also the tea stall where the boatmen actually eat, and the rooftop with no sign that has the best view of Pichola at 6:45pm.</p>
+      <p>I plan every route myself, come along for the whole day, and stay reachable before and after the tour if you need anything &mdash; a restaurant booking, a taxi at midnight, a translator at the pharmacy.</p>
+      <div class="honesty-note">
+        Inside a handful of protected monuments (like the City Palace complex), Indian law requires a government-certified guide to lead the walkthrough. On those days, I bring in a certified guide I work with regularly &mdash; you still get me for everything else, all day.
+      </div>
+    </div>
+    <div class="credentials">
+      <div class="cred">
+        <div class="cred-dot">1</div>
+        <div><h4>Local, not scripted</h4><p>Born and based in Udaipur. Routes built from what I'd actually do with visiting family, not a fixed script.</p></div>
+      </div>
+      <div class="cred">
+        <div class="cred-dot">2</div>
+        <div><h4>One point of contact, all day</h4><p>Guide, photographer and local fixer in one person &mdash; no handoffs between a driver, a guide and a "manager."</p></div>
+      </div>
+      <div class="cred">
+        <div class="cred-dot">3</div>
+        <div><h4>Certified partners where it's required</h4><p>Protected-monument guiding is handled by a government-certified colleague, booked in as part of your day.</p></div>
+      </div>
+      <div class="cred">
+        <div class="cred-dot">4</div>
+        <div><h4>Flexible, not templated</h4><p>Tell me who's coming &mdash; couple, friends, parents &mdash; and the day gets built around your pace, not a fixed itinerary.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SERVICES ================= -->
+<section class="services" id="services">
+  <div class="wrap">
+    <div class="services-head">
+      <div>
+        <div class="section-kicker">What we can do together</div>
+        <h2>Pick a mood, or let me build the day</h2>
+      </div>
+      <p>Every tour is private &mdash; just your group. Prices are per group of up to 4; ask for larger groups.</p>
+    </div>
+
+    <div class="cards">
+      <div class="card">
+        <span class="tag">Best first taste</span>
+        <h3>Free Walking Tour</h3>
+        <p>An easy 2&ndash;2.5hr walk through the old city's ghats and lanes. Pay what the tour was worth to you.</p>
+        <div class="meta"><span class="dur">2&ndash;2.5 hrs</span><span class="price">Pay-what-you-feel</span></div>
+      </div>
+
+      <div class="card">
+        <span class="tag">Local favourite</span>
+        <h3>Street Food &amp; Snacks Trail</h3>
+        <p>Chaat, kachori, mirchi bada and the sweets stall locals actually queue at &mdash; six-plus stops through the old city.</p>
+        <div class="meta"><span class="dur">2&ndash;2.5 hrs</span><span class="price">from &#8377;1,800/person</span></div>
+      </div>
+
+      <div class="card">
+        <span class="tag">Not on the postcards</span>
+        <h3>Udaipur's Indo-Chinese Trail</h3>
+        <p>The city's other favourite cuisine &mdash; momos, chowmein and chilli-garlic carts, plus why Indo-Chinese took off here.</p>
+        <div class="meta"><span class="dur">2 hrs</span><span class="price">from &#8377;1,600/person</span></div>
+      </div>
+
+      <div class="card">
+        <span class="tag">The essentials</span>
+        <h3>Half-Day City Tour</h3>
+        <p>City Palace, Lake Pichola, Jagdish Temple and the ghats &mdash; guided, unhurried, with transfers handled.</p>
+        <div class="meta"><span class="dur">4 hrs</span><span class="price">from &#8377;3,000/group</span></div>
+      </div>
+
+      <div class="card">
+        <span class="tag">Anchor day</span>
+        <h3>Full-Day City Tour</h3>
+        <p>Everything the half-day covers, plus Sahelion ki Bari, Fateh Sagar, the bazaars, and a sunset boat ride.</p>
+        <div class="meta"><span class="dur">8&ndash;10 hrs</span><span class="price">from &#8377;5,000/group</span></div>
+      </div>
+
+      <div class="card">
+        <span class="tag">Day trip</span>
+        <h3>Kumbhalgarh + Ranakpur</h3>
+        <p>The world's second-longest wall and the marble carving of Ranakpur Jain temple, with a proper lunch stop.</p>
+        <div class="meta"><span class="dur">7&ndash;9 hrs</span><span class="price">from &#8377;5,500/group</span></div>
+      </div>
+
+      <div class="card">
+        <span class="tag">Day trip</span>
+        <h3>Chittorgarh Fort</h3>
+        <p>India's largest fort complex &mdash; the towers, the palaces, and the stories behind Mewar's most storied stronghold.</p>
+        <div class="meta"><span class="dur">7&ndash;9 hrs</span><span class="price">from &#8377;5,000/group</span></div>
+      </div>
+
+      <div class="card">
+        <span class="tag">Moving on to Jodhpur?</span>
+        <h3>Udaipur &rarr; Jodhpur, Scenic Route</h3>
+        <p>Skip the straight highway &mdash; stop at Kumbhalgarh and Ranakpur on the way, arrive in Jodhpur by evening.</p>
+        <div class="meta"><span class="dur">Full day</span><span class="price">from &#8377;7,500/group</span></div>
+      </div>
+
+      <div class="card">
+        <span class="tag">Seasonal add-on</span>
+        <h3>Leopard Safari</h3>
+        <p>Added onto a Kumbhalgarh day when timings line up &mdash; ask when you enquire and I'll confirm the current slots.</p>
+        <div class="meta"><span class="dur">3&ndash;4 hrs</span><span class="price">from &#8377;3,000/jeep</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= HOW IT WORKS ================= -->
+<section class="flow" id="how">
+  <div class="wrap">
+    <div class="flow-head">
+      <div class="section-kicker">How a booking actually happens</div>
+      <h2>No agency back-and-forth</h2>
+      <p>You message me directly, we agree on the day, and I show up. That's the whole process.</p>
+    </div>
+    <div class="flow-steps">
+      <div class="flow-step">
+        <div class="flow-num">1</div>
+        <h4>Tell me your dates</h4>
+        <p>Send your travel dates, group size and what you're curious about &mdash; forts, food, or both.</p>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num">2</div>
+        <h4>I build the day</h4>
+        <p>You get a plan with timings and a price within a few hours, adjusted until it feels right.</p>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num">3</div>
+        <h4>Confirm &amp; pay a token</h4>
+        <p>A small advance holds your date; the rest is settled on the day, in cash or UPI.</p>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num">4</div>
+        <h4>I show up, on time</h4>
+        <p>Pickup from your hotel, and I stay with you until you're dropped back, day done.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= REVIEWS (placeholder) ================= -->
+<section class="reviews">
+  <div class="wrap">
+    <div class="section-kicker">In guests' words</div>
+    <h2>Reviews land here as the first tours wrap</h2>
+    <p class="reviews-note">This site is brand new — real guest reviews will replace this section shortly. If you're reading this before that happens, ask for direct references from recent guests.</p>
+    <div class="review-grid">
+      <div class="review-card"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>Space reserved for your first guest review.</div>
+      <div class="review-card"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>Space reserved for your second guest review.</div>
+      <div class="review-card"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>Space reserved for your third guest review.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section class="contact" id="contact">
+  <div class="wrap contact-grid">
+    <div>
+      <div class="section-kicker" style="color:#BFE0DA;">Get in touch</div>
+      <h2>Let's plan your day in Udaipur</h2>
+      <p class="lead">Fastest reply is on WhatsApp. If you'd rather use the form, I usually reply within a few hours.</p>
+      <div class="contact-methods">
+        <a class="cmethod" href="https://wa.me/916376091117?text=Hi!%20I%27d%20like%20to%20plan%20a%20day%20in%20Udaipur." target="_blank" rel="noopener">&#128241; WhatsApp &mdash; +91 XXXXX XXXXX</a>
+        <a class="cmethod" href="mailto:harryknowsudaipur@gmail.com">&#9993; harryknowsudaipur@gmail.com</a>
+        <a class="cmethod" href="https://instagram.com/harryknowsudaipur" target="_blank" rel="noopener">&#128247; @harryknowsudaipur on Instagram</a>
+      </div>
+    </div>
+
+    <form action="https://formspree.io/f/mlgqrrzy" method="POST">
+      <div class="form-row">
+        <div>
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" placeholder="Your name" required>
+        </div>
+        <div>
+          <label for="dates">Travel dates</label>
+          <input id="dates" name="dates" type="text" placeholder="e.g. 12–15 Sept">
+        </div>
+      </div>
+      <div class="form-row">
+        <div>
+          <label for="group">Group size</label>
+          <input id="group" name="group" type="text" placeholder="e.g. 2 adults">
+        </div>
+        <div>
+          <label for="interest">Interested in</label>
+          <select id="interest" name="interest">
+            <option>Full-day city tour</option>
+            <option>Half-day city tour</option>
+            <option>Food / street food trail</option>
+            <option>Kumbhalgarh &amp; Ranakpur</option>
+            <option>Chittorgarh</option>
+            <option>Udaipur &rarr; Jodhpur transfer</option>
+            <option>Not sure yet</option>
+          </select>
+        </div>
+      </div>
+      <div>
+        <label for="message">Anything else I should know?</label>
+        <textarea id="message" name="message" placeholder="Interests, pace, mobility needs, food preferences…"></textarea>
+      </div>
+      <button class="submit" type="submit">Send enquiry</button>
+      <p class="form-note">This form needs a free Formspree endpoint swapped in before it will send &mdash; see the setup notes.</p>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap footer-grid">
+    <div>&copy; <span id="year"></span> Harry Knows Udaipur. Based in Udaipur, Rajasthan.</div>
+    <div><a href="#contact">Contact</a></div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
