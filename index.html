@@ -37,7 +37,7 @@
     --text-promise:#4A2F26;
     --rgb-soft:29,92,86;
     --nav-bg:rgba(243,238,225,0.92);
-    --arc-bg-image:url('images/lake-day.png');
+    --hero-bg-image:url('images/hero-day.jpg');
     --radius:14px;
     --max:1200px;
   }
@@ -51,7 +51,7 @@
     --text-promise:#F0DDD3;
     --rgb-soft:243,238,225;
     --nav-bg:rgba(10,28,26,0.92);
-    --arc-bg-image:url('images/lake-night.png');
+    --hero-bg-image:url('images/hero-night.jpg');
   }
   html[data-theme="night"] .honesty-note,
   html[data-theme="night"] .promise-note{
@@ -130,17 +130,27 @@
   }
   .theme-toggle:hover{background:rgba(var(--rgb-soft),0.14); transform:translateY(-1px);}
 
-  /* ---------- HERO ---------- */
+  /* ---------- HERO: full-bleed photo ---------- */
   .hero{
-    background:radial-gradient(120% 140% at 15% 0%, #16504A 0%, var(--ink) 62%);
-    color:var(--text-on-dark);
-    padding:88px 0 40px;
+    position:relative;
+    min-height:82vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-end;
+    background-image:var(--hero-bg-image);
+    background-size:cover;
+    background-position:center 38%;
     overflow:hidden;
+    color:var(--text-on-dark);
+    transition:background-image 0.3s ease;
   }
-  .hero-grid{
-    display:grid; grid-template-columns:1.1fr 0.9fr; gap:48px; align-items:center;
+  .hero-scrim{
+    position:absolute; inset:0; z-index:0;
+    background:
+      linear-gradient(100deg, rgba(11,46,44,0.95) 0%, rgba(11,46,44,0.84) 26%, rgba(11,46,44,0.42) 52%, rgba(11,46,44,0.14) 74%),
+      linear-gradient(0deg, rgba(11,46,44,0.92) 0%, rgba(11,46,44,0.08) 42%);
   }
-  @media (max-width:900px){ .hero-grid{grid-template-columns:1fr;} }
+  .hero-content{position:relative; z-index:1; padding:140px 0 64px;}
   .eyebrow{
     display:inline-flex; align-items:center; gap:8px;
     font-size:0.78rem; letter-spacing:0.08em; text-transform:uppercase;
@@ -164,34 +174,37 @@
   .btn-ghost{border:1px solid rgba(239,234,224,0.35); color:var(--text-on-dark);}
   .btn-ghost:hover{border-color:var(--text-on-dark);}
 
-  /* signature: sun-arc day timeline + passport-stamp badge */
-  .arc-card{
-    position:relative;
-    background-image:linear-gradient(180deg, rgba(11,46,44,0.74), rgba(11,46,44,0.88)), var(--arc-bg-image);
-    background-size:cover;
-    background-position:center;
-    border:1px solid rgba(239,234,224,0.14);
-    border-radius:20px;
-    padding:26px 22px 18px;
-    transition:background-image 0.3s ease;
+  /* signature: flat bottom timeline strip + passport-stamp badge */
+  .hero-timeline-wrap{position:relative; z-index:1; border-top:1px solid rgba(239,234,224,0.18); padding:22px 0 30px;}
+  .hero-timeline-head{display:flex; align-items:baseline; gap:16px; flex-wrap:wrap; margin-bottom:22px;}
+  .hero-timeline-kicker{font-size:0.75rem; letter-spacing:0.08em; text-transform:uppercase; color:#9CC4BE;}
+  .hero-timeline{position:relative; display:flex; justify-content:space-between;}
+  .hero-timeline::before{
+    content:""; position:absolute; left:2%; right:2%; top:28px; height:1px;
+    background-image:linear-gradient(to right, rgba(228,177,90,0.5) 50%, transparent 50%);
+    background-size:8px 1px; background-repeat:repeat-x;
+    z-index:0;
   }
-  .arc-label{font-size:0.75rem; letter-spacing:0.08em; text-transform:uppercase; color:#9CC4BE; margin-bottom:6px;}
-  .arc-title{font-family:'Fraunces', serif; font-size:1.05rem; margin-bottom:6px; color:var(--text-on-dark);}
-  .arc-note{margin-bottom:14px;}
-  .arc-svg{width:100%; height:auto;}
-  .arc-stop-label{font-size:9.5px; fill:#CFE4E0; font-family:'Inter', sans-serif;}
-  .arc-stop-time{font-size:8.5px; fill:#7FA69F; font-family:'Inter', sans-serif;}
+  .hero-timeline .stop{position:relative; z-index:1; display:flex; flex-direction:column; align-items:center; gap:6px; text-align:center; flex:1;}
+  .hero-timeline .stop .time{font-size:0.72rem; color:#9CC4BE; letter-spacing:0.03em;}
+  .hero-timeline .stop .dot{width:8px; height:8px; border-radius:50%; background:var(--brass-light);}
+  .hero-timeline .stop .label{font-size:0.85rem; font-weight:500; color:var(--text-on-dark);}
+  @media (max-width:760px){
+    .hero-timeline{flex-wrap:wrap; row-gap:20px;}
+    .hero-timeline .stop{flex:0 0 33%;}
+    .hero-timeline::before{display:none;}
+  }
 
   .stamp-badge{
-    position:absolute; top:-16px; right:-14px;
+    position:absolute; top:118px; right:24px; z-index:1;
     width:96px; height:96px; border-radius:50%; border:2px dashed var(--brass-light);
     display:flex; align-items:center; justify-content:center; flex-direction:column; gap:2px;
     transform:rotate(-10deg); text-align:center; color:var(--brass-light);
     font-weight:700; font-size:0.6rem; letter-spacing:0.05em; text-transform:uppercase;
-    background:rgba(11,46,44,0.55); backdrop-filter:blur(2px);
+    background:rgba(11,46,44,0.4); backdrop-filter:blur(2px);
   }
   .stamp-badge span:first-child{font-family:'Fraunces', serif; font-size:0.82rem; letter-spacing:0.02em;}
-  @media (max-width:900px){ .stamp-badge{width:80px; height:80px; top:-12px; right:-8px; font-size:0.52rem;} .stamp-badge span:first-child{font-size:0.72rem;} }
+  @media (max-width:900px){ .stamp-badge{width:80px; height:80px; top:104px; right:16px; font-size:0.52rem;} .stamp-badge span:first-child{font-size:0.72rem;} }
 
   /* ---------- TICKER ---------- */
   .ticker{
@@ -514,8 +527,10 @@
 
 <!-- ================= HERO ================= -->
 <section class="hero">
-  <div class="wrap hero-grid">
-    <div>
+  <div class="hero-scrim"></div>
+  <div class="stamp-badge"><span>Udaipur</span><span>local guide</span></div>
+  <div class="wrap">
+    <div class="hero-content">
       <div class="eyebrow">Born on this lake. Never left for long.</div>
       <h1>This city will ruin <em>other cities</em> for you</h1>
       <p class="lead">One local, one car, one very full day. I'll take you past the palace everyone photographs to the chai stall nobody does &mdash; sunrise on the ghats, a fort nobody Ubers to, and the best kachori in Rajasthan. Fight me on that last one.</p>
@@ -524,41 +539,21 @@
         <a class="btn btn-ghost" href="https://wa.me/916376091117?text=Hi!%20I%27d%20like%20to%20plan%20a%20day%20in%20Udaipur." target="_blank" rel="noopener">Message on WhatsApp</a>
       </div>
     </div>
+  </div>
 
-    <div class="arc-card">
-      <div class="stamp-badge"><span>Udaipur</span><span>local guide</span></div>
-      <div class="arc-label">A day, mapped over the lake</div>
-      <div class="arc-title">Sunrise on Pichola to dinner under the palace lights</div>
-      <div class="arc-note scribble">this exact route, more times than I can count</div>
-      <svg class="arc-svg" viewBox="0 0 460 220" xmlns="http://www.w3.org/2000/svg">
-        <path d="M 20 190 Q 230 -10 440 190" stroke="#3A7A72" stroke-width="1.5" fill="none" stroke-dasharray="2 5"/>
-        <!-- stops along the arc -->
-        <g>
-          <circle cx="20" cy="190" r="4.5" fill="#E4B15A"/>
-          <text x="8" y="172" class="arc-stop-time" text-anchor="start">7:00</text>
-          <text x="8" y="208" class="arc-stop-label" text-anchor="start">Ghat &amp; boat</text>
-        </g>
-        <g>
-          <circle cx="125" cy="88" r="4.5" fill="#E4B15A"/>
-          <text x="125" y="70" class="arc-stop-time" text-anchor="middle">9:30</text>
-          <text x="125" y="106" class="arc-stop-label" text-anchor="middle">City Palace</text>
-        </g>
-        <g>
-          <circle cx="230" cy="35" r="5" fill="#E4B15A"/>
-          <text x="230" y="17" class="arc-stop-time" text-anchor="middle">12:30</text>
-          <text x="230" y="53" class="arc-stop-label" text-anchor="middle">Street food lane</text>
-        </g>
-        <g>
-          <circle cx="335" cy="88" r="4.5" fill="#E4B15A"/>
-          <text x="335" y="70" class="arc-stop-time" text-anchor="middle">15:30</text>
-          <text x="335" y="106" class="arc-stop-label" text-anchor="middle">Bazaar &amp; havelis</text>
-        </g>
-        <g>
-          <circle cx="440" cy="190" r="4.5" fill="#E4B15A"/>
-          <text x="452" y="172" class="arc-stop-time" text-anchor="end">19:00</text>
-          <text x="452" y="208" class="arc-stop-label" text-anchor="end">Sunset &amp; dinner</text>
-        </g>
-      </svg>
+  <div class="hero-timeline-wrap">
+    <div class="wrap">
+      <div class="hero-timeline-head">
+        <span class="hero-timeline-kicker">A day, mapped over the lake</span>
+        <span class="scribble">this exact route, more times than I can count</span>
+      </div>
+      <div class="hero-timeline">
+        <div class="stop"><span class="time">7:00</span><span class="dot"></span><span class="label">Ghat &amp; boat</span></div>
+        <div class="stop"><span class="time">9:30</span><span class="dot"></span><span class="label">City Palace</span></div>
+        <div class="stop"><span class="time">12:30</span><span class="dot"></span><span class="label">Street food lane</span></div>
+        <div class="stop"><span class="time">15:30</span><span class="dot"></span><span class="label">Bazaar &amp; havelis</span></div>
+        <div class="stop"><span class="time">19:00</span><span class="dot"></span><span class="label">Sunset &amp; dinner</span></div>
+      </div>
     </div>
   </div>
 </section>
