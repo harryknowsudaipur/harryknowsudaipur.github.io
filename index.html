@@ -1,16 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<script>
-  (function(){
-    try{
-      var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-      document.documentElement.setAttribute('data-theme', prefersDark ? 'night' : 'day');
-    }catch(e){
-      document.documentElement.setAttribute('data-theme', 'day');
-    }
-  })();
-</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Harry Knows Udaipur — Local Guide, Driver &amp; Partner in Crime</title>
@@ -18,47 +8,21 @@
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600;700&family=Caveat:wght@500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=Caveat:wght@500;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --ink:#0B2E2C;
-    --lake:#1D5C56;
-    --lake-light:#2E7A72;
-    --whitewash:#F3EEE1;
-    --whitewash-dim:#E9E2D0;
-    --brass:#C9932E;
-    --brass-light:#E4B15A;
-    --clay:#B5583C;
-    --text-on-dark:#EFEAE0;
-    --text-on-light:#142524;
-    --text-body:#3A4B49;
-    --text-muted:#5A6D6A;
-    --text-honesty:#28433F;
-    --text-promise:#4A2F26;
-    --rgb-soft:29,92,86;
-    --nav-bg:rgba(243,238,225,0.92);
-    --hero-bg-image:url('images/hero-day.jpg');
+    --ink:#3D2820;
+    --lake:#E07A5F;
+    --lake-light:#F4A261;
+    --whitewash:#FDF6E3;
+    --whitewash-dim:#F4F1DE;
+    --brass:#F4A261;
+    --brass-light:#E39251;
+    --clay:#D16A4F;
+    --text-on-dark:#FDF6E3;
+    --text-on-light:#3D2820;
     --radius:14px;
     --max:1200px;
-  }
-  html[data-theme="night"]{
-    --whitewash:#12312F;
-    --whitewash-dim:#0E2624;
-    --text-on-light:#EFEAE0;
-    --text-body:#C9DAD6;
-    --text-muted:#8FB0AA;
-    --text-honesty:#F0DDD3;
-    --text-promise:#F0DDD3;
-    --rgb-soft:243,238,225;
-    --nav-bg:rgba(10,28,26,0.92);
-    --hero-bg-image:url('images/hero-night.jpg');
-  }
-  html[data-theme="night"] .honesty-note,
-  html[data-theme="night"] .promise-note{
-    background:rgba(181,88,60,0.18);
-  }
-  html[data-theme="night"] .review-card{
-    border-color:rgba(var(--rgb-soft),0.3);
   }
   @media (min-width:1600px){ :root{ --max:1400px; } }
   @media (min-width:2000px){ :root{ --max:1560px; } }
@@ -72,9 +36,9 @@
     -webkit-font-smoothing:antialiased;
   }
   h1,h2,h3,.display{
-    font-family:'Fraunces', serif;
-    font-weight:600;
-    line-height:1.08;
+    font-family:'Poppins', sans-serif;
+    font-weight:700;
+    line-height:1.12;
     letter-spacing:-0.01em;
   }
   a{color:inherit; text-decoration:none;}
@@ -96,15 +60,15 @@
   /* ---------- NAV ---------- */
   header{
     position:sticky; top:0; z-index:50;
-    background:var(--nav-bg);
+    background:rgba(243,238,225,0.92);
     backdrop-filter:blur(8px);
-    border-bottom:1px solid rgba(var(--rgb-soft),0.08);
+    border-bottom:1px solid rgba(11,46,44,0.08);
   }
   nav{
     display:flex; align-items:center; justify-content:space-between;
     padding:16px 24px; max-width:var(--max); margin:0 auto;
   }
-  .brand{display:flex; align-items:center; gap:9px; font-family:'Fraunces', serif; font-weight:600; font-size:1.15rem; letter-spacing:-0.01em;}
+  .brand{display:flex; align-items:center; gap:9px; font-family:'Poppins', sans-serif; font-weight:600; font-size:1.15rem; letter-spacing:-0.01em;}
   .brand span{color:var(--brass);}
   .brand-mark{
     width:26px; height:26px; border-radius:50%; border:1.5px dashed var(--lake);
@@ -118,39 +82,25 @@
   }
   .nav-cta:hover{background:var(--ink);}
   @media (max-width:720px){ .nav-links{display:none;} }
-  .nav-right{display:flex; align-items:center; gap:14px;}
-  .theme-toggle{
-    width:38px; height:38px; border-radius:50%;
-    border:1px solid rgba(var(--rgb-soft),0.3);
-    background:rgba(var(--rgb-soft),0.06);
-    display:flex; align-items:center; justify-content:center;
-    cursor:pointer; font-size:1rem; color:var(--text-on-light);
-    transition:background 0.15s ease, transform 0.15s ease;
-    padding:0;
-  }
-  .theme-toggle:hover{background:rgba(var(--rgb-soft),0.14); transform:translateY(-1px);}
 
-  /* ---------- HERO: full-bleed photo ---------- */
+  /* ---------- HERO ---------- */
   .hero{
     position:relative;
-    min-height:82vh;
-    display:flex;
-    flex-direction:column;
-    justify-content:flex-end;
-    background-image:var(--hero-bg-image);
-    background-size:cover;
-    background-position:center 38%;
-    overflow:hidden;
+    background:#000 url('https://images.unsplash.com/photo-1695956353120-54ce5e91632b?crop=entropy&cs=srgb&fm=jpg&q=80') center/cover no-repeat;
     color:var(--text-on-dark);
-    transition:background-image 0.3s ease;
+    padding:88px 0 40px;
+    overflow:hidden;
   }
-  .hero-scrim{
-    position:absolute; inset:0; z-index:0;
-    background:
-      linear-gradient(100deg, rgba(11,46,44,0.95) 0%, rgba(11,46,44,0.84) 26%, rgba(11,46,44,0.42) 52%, rgba(11,46,44,0.14) 74%),
-      linear-gradient(0deg, rgba(11,46,44,0.92) 0%, rgba(11,46,44,0.08) 42%);
+  .hero::before{
+    content:""; position:absolute; inset:0;
+    background:linear-gradient(115deg, rgba(0,0,0,0.78) 0%, rgba(0,0,0,0.55) 45%, rgba(0,0,0,0.25) 100%);
+    z-index:0;
   }
-  .hero-content{position:relative; z-index:1; padding:140px 0 64px; max-width:520px;}
+  .hero .wrap{position:relative; z-index:1;}
+  .hero-grid{
+    display:grid; grid-template-columns:1.1fr 0.9fr; gap:48px; align-items:center;
+  }
+  @media (max-width:900px){ .hero-grid{grid-template-columns:1fr;} }
   .eyebrow{
     display:inline-flex; align-items:center; gap:8px;
     font-size:0.78rem; letter-spacing:0.08em; text-transform:uppercase;
@@ -160,7 +110,7 @@
   .hero h1{font-size:clamp(2.3rem, 4.6vw, 3.7rem); max-width:13ch;}
   .hero h1 em{font-style:italic; color:var(--brass-light); font-weight:500;}
   .hero p.lead{
-    margin-top:20px; font-size:1.08rem; max-width:48ch; color:#CFE4E0;
+    margin-top:20px; font-size:1.08rem; max-width:48ch; color:#F0DDC4;
   }
   .hero-ctas{display:flex; gap:14px; margin-top:32px; flex-wrap:wrap; align-items:center;}
   .btn{
@@ -174,43 +124,38 @@
   .btn-ghost{border:1px solid rgba(239,234,224,0.35); color:var(--text-on-dark);}
   .btn-ghost:hover{border-color:var(--text-on-dark);}
 
-  /* signature: flat bottom timeline strip + passport-stamp badge */
-  .hero-timeline-wrap{position:relative; z-index:1; border-top:1px solid rgba(239,234,224,0.18); padding:22px 0 30px;}
-  .hero-timeline-head{display:flex; align-items:baseline; gap:16px; flex-wrap:wrap; margin-bottom:22px;}
-  .hero-timeline-kicker{font-size:0.75rem; letter-spacing:0.08em; text-transform:uppercase; color:#9CC4BE;}
-  .hero-timeline{position:relative; display:flex; justify-content:space-between;}
-  .hero-timeline::before{
-    content:""; position:absolute; left:2%; right:2%; top:28px; height:1px;
-    background-image:linear-gradient(to right, rgba(228,177,90,0.5) 50%, transparent 50%);
-    background-size:8px 1px; background-repeat:repeat-x;
-    z-index:0;
+  /* signature: sun-arc day timeline + passport-stamp badge */
+  .arc-card{
+    position:relative;
+    background:rgba(61,40,32,0.55);
+    backdrop-filter:blur(6px);
+    border:1px solid rgba(239,234,224,0.14);
+    border-radius:20px;
+    padding:26px 22px 18px;
   }
-  .hero-timeline .stop{position:relative; z-index:1; display:flex; flex-direction:column; align-items:center; gap:6px; text-align:center; flex:1;}
-  .hero-timeline .stop .time{font-size:0.72rem; color:#9CC4BE; letter-spacing:0.03em;}
-  .hero-timeline .stop .dot{width:8px; height:8px; border-radius:50%; background:var(--brass-light);}
-  .hero-timeline .stop .label{font-size:0.85rem; font-weight:500; color:var(--text-on-dark);}
-  @media (max-width:760px){
-    .hero-timeline{flex-wrap:wrap; row-gap:20px;}
-    .hero-timeline .stop{flex:0 0 33%;}
-    .hero-timeline::before{display:none;}
-  }
+  .arc-label{font-size:0.75rem; letter-spacing:0.08em; text-transform:uppercase; color:#D9B999; margin-bottom:6px;}
+  .arc-title{font-family:'Poppins', sans-serif; font-size:1.05rem; margin-bottom:6px; color:var(--text-on-dark);}
+  .arc-note{margin-bottom:14px;}
+  .arc-svg{width:100%; height:auto;}
+  .arc-stop-label{font-size:9.5px; fill:#F0DDC4; font-family:'Inter', sans-serif;}
+  .arc-stop-time{font-size:8.5px; fill:#C9A588; font-family:'Inter', sans-serif;}
 
   .stamp-badge{
-    position:absolute; top:118px; right:24px; z-index:1;
+    position:absolute; top:-16px; right:-14px;
     width:96px; height:96px; border-radius:50%; border:2px dashed var(--brass-light);
     display:flex; align-items:center; justify-content:center; flex-direction:column; gap:2px;
     transform:rotate(-10deg); text-align:center; color:var(--brass-light);
     font-weight:700; font-size:0.6rem; letter-spacing:0.05em; text-transform:uppercase;
-    background:rgba(11,46,44,0.4); backdrop-filter:blur(2px);
+    background:rgba(11,46,44,0.55); backdrop-filter:blur(2px);
   }
-  .stamp-badge span:first-child{font-family:'Fraunces', serif; font-size:0.82rem; letter-spacing:0.02em;}
-  @media (max-width:900px){ .stamp-badge{width:80px; height:80px; top:104px; right:16px; font-size:0.52rem;} .stamp-badge span:first-child{font-size:0.72rem;} }
+  .stamp-badge span:first-child{font-family:'Poppins', sans-serif; font-size:0.82rem; letter-spacing:0.02em;}
+  @media (max-width:900px){ .stamp-badge{width:80px; height:80px; top:-12px; right:-8px; font-size:0.52rem;} .stamp-badge span:first-child{font-size:0.72rem;} }
 
   /* ---------- TICKER ---------- */
   .ticker{
     background:var(--whitewash-dim);
-    border-top:1px dashed rgba(var(--rgb-soft),0.18);
-    border-bottom:1px dashed rgba(var(--rgb-soft),0.18);
+    border-top:1px dashed rgba(11,46,44,0.18);
+    border-bottom:1px dashed rgba(11,46,44,0.18);
     padding:13px 0; overflow:hidden; white-space:nowrap;
   }
   .ticker-track{display:inline-flex; width:max-content; animation:tickerScroll 38s linear infinite;}
@@ -237,15 +182,15 @@
   .about h2{font-size:clamp(1.7rem,3vw,2.3rem); margin-bottom:18px; max-width:15ch;}
   .about-photo{margin-bottom:22px;}
   .photo-placeholder{
-    width:150px; height:150px; border-radius:18px; border:1px dashed rgba(var(--rgb-soft),0.35);
-    background:repeating-linear-gradient(135deg, rgba(var(--rgb-soft),0.06), rgba(var(--rgb-soft),0.06) 10px, rgba(var(--rgb-soft),0.1) 10px, rgba(var(--rgb-soft),0.1) 20px);
+    width:150px; height:150px; border-radius:18px; border:1px dashed rgba(29,92,86,0.35);
+    background:repeating-linear-gradient(135deg, rgba(29,92,86,0.06), rgba(29,92,86,0.06) 10px, rgba(29,92,86,0.1) 10px, rgba(29,92,86,0.1) 20px);
     display:flex; align-items:center; justify-content:center; text-align:center;
-    font-size:0.8rem; color:var(--text-muted); padding:10px;
+    font-size:0.8rem; color:#5A6D6A; padding:10px;
   }
-  .about p{max-width:56ch; color:var(--text-body); margin-bottom:14px;}
+  .about p{max-width:56ch; color:#3A4B49; margin-bottom:14px;}
   .honesty-note{
     margin-top:0; padding:16px 18px; border-left:3px solid var(--clay);
-    background:rgba(181,88,60,0.07); border-radius:0 10px 10px 0; font-size:0.92rem; color:var(--text-honesty);
+    background:rgba(181,88,60,0.07); border-radius:0 10px 10px 0; font-size:0.92rem; color:#28433F;
   }
   .honesty-tag{
     display:block; font-size:0.72rem; letter-spacing:0.06em; text-transform:uppercase;
@@ -258,8 +203,8 @@
     display:flex; align-items:center; justify-content:center; margin-top:2px;
   }
   .credentials-frame{
-    border:1px dashed rgba(var(--rgb-soft),0.35); border-radius:16px;
-    padding:26px 26px 24px; background:rgba(var(--rgb-soft),0.04);
+    border:1px dashed rgba(29,92,86,0.35); border-radius:16px;
+    padding:26px 26px 24px; background:rgba(29,92,86,0.04);
     display:flex; flex-direction:column; height:100%;
   }
   .frame-label{
@@ -274,48 +219,24 @@
   .promise-note{
     padding:16px 18px; border-left:3px solid var(--clay);
     background:rgba(181,88,60,0.07); border-radius:0 10px 10px 0;
-    font-family:'Fraunces', serif; font-style:italic; font-size:1.05rem;
-    color:var(--text-promise); line-height:1.4;
+    font-family:'Poppins', sans-serif; font-style:italic; font-size:1.05rem;
+    color:#4A2F26; line-height:1.4;
   }
   .cred{display:flex; gap:14px; align-items:flex-start;}
   .cred-dot{
     width:34px; height:34px; border-radius:50%; background:var(--lake);
     flex-shrink:0; display:flex; align-items:center; justify-content:center;
-    color:var(--whitewash); font-family:'Fraunces', serif; font-weight:600; font-size:0.95rem;
+    color:var(--whitewash); font-family:'Poppins', sans-serif; font-weight:600; font-size:0.95rem;
   }
   .cred h4{font-size:0.98rem; margin-bottom:3px;}
-  .cred p{font-size:0.88rem; color:var(--text-muted); max-width:42ch;}
-
-  /* ---------- ABOUT: restructured layout ---------- */
-  .about-top{display:grid; grid-template-columns:1.1fr 0.9fr; gap:56px; align-items:stretch;}
-  @media (max-width:840px){ .about-top{grid-template-columns:1fr;} }
-  .about-photo-big{
-    width:100%; min-height:340px; height:100%; border-radius:20px; border:1px dashed rgba(var(--rgb-soft),0.35);
-    background:repeating-linear-gradient(135deg, rgba(var(--rgb-soft),0.06), rgba(var(--rgb-soft),0.06) 10px, rgba(var(--rgb-soft),0.1) 10px, rgba(var(--rgb-soft),0.1) 20px);
-    display:flex; align-items:center; justify-content:center; text-align:center;
-    font-size:1rem; color:var(--text-muted);
-  }
-  .about-photo-big img{width:100%; height:100%; object-fit:cover; border-radius:20px;}
-  .in-short-band{
-    margin-top:48px; border:1px dashed rgba(var(--rgb-soft),0.35); border-radius:16px;
-    padding:30px 30px 26px; background:rgba(var(--rgb-soft),0.04);
-  }
-  .in-short-band .frame-label{margin-bottom:22px;}
-  .in-short-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:26px;}
-  @media (max-width:900px){ .in-short-grid{grid-template-columns:repeat(2,1fr);} }
-  @media (max-width:560px){ .in-short-grid{grid-template-columns:1fr;} }
-  .in-short-grid .cred{flex-direction:column; gap:10px;}
-  .about-bottom{display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-top:32px; align-items:stretch;}
-  @media (max-width:760px){ .about-bottom{grid-template-columns:1fr;} }
-  .about-bottom .honesty-wrap{margin-top:0;}
-  .about-bottom .promise-wrap{margin-top:0;}
+  .cred p{font-size:0.88rem; color:#5A6D6A; max-width:42ch;}
 
   /* ---------- SERVICES ---------- */
   .services{padding:88px 0; background:var(--ink); color:var(--text-on-dark);}
   .services-head{display:flex; justify-content:space-between; align-items:flex-end; gap:24px; margin-bottom:44px; flex-wrap:wrap;}
   .services .section-kicker{color:var(--brass-light);}
   .services h2{font-size:clamp(1.7rem,3vw,2.3rem); max-width:17ch; color:var(--text-on-dark);}
-  .services-head p{color:#A9C4BF; max-width:38ch; font-size:0.94rem;}
+  .services-head p{color:#E8CDB0; max-width:38ch; font-size:0.94rem;}
   .cards{display:grid; grid-template-columns:repeat(3, 1fr); gap:20px;}
   @media (max-width:900px){ .cards{grid-template-columns:repeat(2,1fr);} }
   @media (max-width:620px){ .cards{grid-template-columns:1fr;} }
@@ -328,6 +249,12 @@
   }
   .card:hover{border-color:var(--brass); background:rgba(239,234,224,0.06); transform:translateY(-3px);}
   .card:focus-visible{border-color:var(--brass); outline:2px solid var(--brass-light); outline-offset:2px;}
+  .card.card-photo{
+    background-image: linear-gradient(to bottom, rgba(61,40,32,0.1) 0%, rgba(61,40,32,0.97) 78%), var(--card-photo);
+    background-size: cover; background-position: center; background-repeat:no-repeat;
+    border-color: transparent;
+  }
+  .card.card-photo:hover{border-color:var(--brass);}
   .card-hint{
     margin-top:12px; font-size:0.82rem; font-weight:600; color:var(--brass-light);
     opacity:0.75; transition:opacity .15s ease;
@@ -339,17 +266,17 @@
     display:inline-block; transform:rotate(-1.5deg);
   }
   .card:nth-child(even) .tag{transform:rotate(1.5deg);}
-  .card h3{font-family:'Fraunces', serif; font-size:1.15rem; margin:12px 0 8px; color:var(--text-on-dark);}
-  .card p{font-size:0.88rem; color:#B7CBC7; margin-bottom:14px;}
+  .card h3{font-family:'Poppins', sans-serif; font-size:1.15rem; margin:12px 0 8px; color:var(--text-on-dark);}
+  .card p{font-size:0.88rem; color:#E8CDB0; margin-bottom:14px;}
   .card .meta{display:flex; justify-content:space-between; align-items:center; font-size:0.85rem; padding-top:12px; border-top:1px solid rgba(239,234,224,0.1);}
-  .card .price{font-weight:700; color:var(--brass-light); font-family:'Fraunces', serif; font-size:1.02rem;}
-  .card .dur{color:#7FA69F;}
+  .card .price{font-weight:700; color:var(--brass-light); font-family:'Poppins', sans-serif; font-size:1.02rem;}
+  .card .dur{color:#C9A588;}
 
   /* ---------- HOW IT WORKS ---------- */
   .flow{padding:88px 0; background:var(--whitewash);}
   .flow-head{max-width:52ch; margin-bottom:48px;}
   .flow-head h2{font-size:clamp(1.7rem,3vw,2.3rem);}
-  .flow-head p{color:var(--text-body); margin-top:14px;}
+  .flow-head p{color:#3A4B49; margin-top:14px;}
   .flow-steps{display:grid; grid-template-columns:repeat(4,1fr); gap:0; position:relative;}
   @media (max-width:840px){ .flow-steps{grid-template-columns:1fr; gap:28px;} }
   .flow-step{position:relative; padding-right:24px;}
@@ -361,17 +288,17 @@
   .flow-num{
     width:38px; height:38px; border-radius:50%; border:1.5px solid var(--clay);
     display:flex; align-items:center; justify-content:center;
-    font-family:'Fraunces', serif; font-weight:600; color:var(--clay); margin-bottom:16px; background:var(--whitewash);
+    font-family:'Poppins', sans-serif; font-weight:600; color:var(--clay); margin-bottom:16px; background:var(--whitewash);
   }
   .flow-step h4{font-size:1.02rem; margin-bottom:6px;}
-  .flow-step p{font-size:0.88rem; color:var(--text-muted);}
+  .flow-step p{font-size:0.88rem; color:#5A6D6A;}
 
   /* ---------- BLAST FROM THE PAST ---------- */
   .blast-past{padding:80px 0 70px; background:var(--ink); overflow:hidden;}
   .blast-head{max-width:64ch;}
   .blast-past .section-kicker{color:var(--brass-light);}
   .blast-past h2{color:var(--text-on-dark); font-size:clamp(1.6rem,2.8vw,2.1rem); margin-bottom:14px;}
-  .blast-note{color:#A9C4BF; font-size:0.92rem; margin-bottom:36px;}
+  .blast-note{color:#E8CDB0; font-size:0.92rem; margin-bottom:36px;}
   .blast-track-wrap{overflow:hidden; padding:4px 0; -webkit-mask-image:linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); mask-image:linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);}
   .blast-track{display:inline-flex; gap:18px; width:max-content; animation:blastScroll 46s linear infinite; padding:0 24px;}
   .blast-track-wrap:hover .blast-track{animation-play-state:paused;}
@@ -382,14 +309,17 @@
   }
   .blast-card{
     flex:0 0 auto; width:280px; background:rgba(239,234,224,0.05); border:1px dashed rgba(228,177,90,0.4);
-    border-radius:14px; padding:20px 20px 18px; display:flex; flex-direction:column; gap:12px;
+    border-radius:14px; padding:20px 20px 18px; display:flex; flex-direction:column; gap:10px;
   }
+  .blast-stars{color:var(--brass-light); font-size:0.85rem; letter-spacing:2px;}
   .blast-year{
     align-self:flex-start; font-size:0.68rem; font-weight:700; letter-spacing:0.05em; color:var(--ink);
     background:var(--brass-light); padding:3px 9px; border-radius:5px; transform:rotate(-2deg);
   }
-  .blast-card p{font-family:'Fraunces', serif; font-style:italic; font-size:1rem; color:#D9EAE7; line-height:1.4;}
-  .blast-attr{font-size:0.82rem; color:#7FA69F;}
+  .blast-card p{font-family:'Poppins', sans-serif; font-style:italic; font-size:1rem; color:#F0DDC4; line-height:1.4;}
+  .blast-footer{display:flex; align-items:center; gap:10px; margin-top:2px;}
+  .blast-avatar{width:32px; height:32px; border-radius:50%; background:linear-gradient(135deg, var(--lake), var(--brass-light)); flex-shrink:0;}
+  .blast-attr{font-size:0.82rem; color:#C9A588;}
   .blast-cta-wrap{margin-top:36px;}
   .btn-blast{background:transparent; border:1px solid rgba(239,234,224,0.35); color:var(--text-on-dark);}
   .btn-blast:hover{background:rgba(239,234,224,0.1); border-color:var(--text-on-dark);}
@@ -397,22 +327,22 @@
   /* ---------- YOUTUBE FEATURE ---------- */
   .yt-feature{padding:80px 0; background:var(--whitewash);}
   .yt-feature h2{font-size:clamp(1.6rem,2.8vw,2.1rem); max-width:26ch; margin-bottom:14px;}
-  .yt-note{color:var(--text-body); font-size:0.94rem; max-width:60ch; margin-bottom:32px;}
+  .yt-note{color:#3A4B49; font-size:0.94rem; max-width:60ch; margin-bottom:32px;}
   .yt-grid{display:grid; grid-template-columns:1fr 1fr; gap:24px;}
   @media (max-width:780px){ .yt-grid{grid-template-columns:1fr;} }
-  .yt-embed{position:relative; padding-top:56.25%; height:0; overflow:hidden; border-radius:14px; background:var(--ink); border:1px solid rgba(var(--rgb-soft),0.15);}
+  .yt-embed{position:relative; padding-top:56.25%; height:0; overflow:hidden; border-radius:14px; background:var(--ink); border:1px solid rgba(11,46,44,0.15);}
   .yt-embed iframe{position:absolute; top:0; left:0; width:100%; height:100%; border:0;}
 
   /* ---------- REVIEWS PLACEHOLDER ---------- */
   .reviews{padding:80px 0; background:var(--whitewash-dim);}
   .reviews h2{font-size:clamp(1.5rem,2.6vw,2rem); margin-bottom:8px;}
   .reviews .section-kicker{margin-bottom:12px;}
-  .reviews-note{font-size:0.9rem; color:var(--text-muted); max-width:60ch; margin-bottom:32px;}
+  .reviews-note{font-size:0.9rem; color:#5A6D6A; max-width:60ch; margin-bottom:32px;}
   .review-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:20px;}
   @media (max-width:840px){ .review-grid{grid-template-columns:1fr;} }
   .review-card{
-    background:var(--whitewash); border:1px dashed rgba(var(--rgb-soft),0.25);
-    border-radius:14px; padding:22px; font-size:0.9rem; color:var(--text-muted);
+    background:var(--whitewash); border:1px dashed rgba(20,37,36,0.25);
+    border-radius:14px; padding:22px; font-size:0.9rem; color:#5A6D6A;
   }
   .review-card .stars{color:var(--brass); margin-bottom:10px; font-size:0.85rem;}
 
@@ -421,20 +351,27 @@
   .contact-grid{display:grid; grid-template-columns:1fr 1fr; gap:56px;}
   @media (max-width:840px){ .contact-grid{grid-template-columns:1fr;} }
   .contact h2{font-size:clamp(1.7rem,3vw,2.3rem); color:var(--text-on-dark); max-width:14ch;}
-  .contact p.lead{color:#D9EAE7; margin-top:14px; max-width:44ch; font-size:0.98rem;}
+  .contact p.lead{color:#F0DDC4; margin-top:14px; max-width:44ch; font-size:0.98rem;}
   .contact-methods{display:flex; flex-direction:column; gap:14px; margin-top:28px;}
   .cmethod{
-    display:flex; align-items:center; gap:12px; padding:14px 16px;
+    display:flex; align-items:center; gap:14px; padding:14px 16px;
     background:rgba(239,234,224,0.08); border-radius:12px; font-size:0.92rem; font-weight:500;
   }
   .cmethod:hover{background:rgba(239,234,224,0.14);}
+  .cmethod-icon{
+    width:40px; height:40px; border-radius:50%; flex-shrink:0;
+    display:flex; align-items:center; justify-content:center; font-size:1.1rem;
+  }
+  .cmethod-icon.wa{background:#25D366;}
+  .cmethod-icon.em{background:var(--brass-light);}
+  .cmethod-icon.ig{background:var(--lake);}
   form{display:flex; flex-direction:column; gap:14px;}
-  label{font-size:0.82rem; color:#D9EAE7; margin-bottom:4px; display:block;}
+  label{font-size:0.82rem; color:#F0DDC4; margin-bottom:4px; display:block;}
   input, select, textarea{
     width:100%; padding:13px 14px; border-radius:10px; border:1px solid rgba(239,234,224,0.25);
     background:rgba(239,234,224,0.06); color:var(--text-on-dark); font-family:'Inter', sans-serif; font-size:0.94rem;
   }
-  input::placeholder, textarea::placeholder{color:#9CC4BE;}
+  input::placeholder, textarea::placeholder{color:#D9B999;}
   textarea{resize:vertical; min-height:90px;}
   .form-row{display:grid; grid-template-columns:1fr 1fr; gap:14px;}
   @media (max-width:520px){ .form-row{grid-template-columns:1fr;} }
@@ -444,7 +381,7 @@
     transition:background .15s ease;
   }
   button.submit:hover{background:var(--brass-light);}
-  .form-note{font-size:0.78rem; color:#A9C4BF; margin-top:-4px;}
+  .form-note{font-size:0.78rem; color:#E8CDB0; margin-top:-4px;}
 
   /* ---------- TOUR MODAL ---------- */
   .modal-overlay{
@@ -459,38 +396,38 @@
   }
   .modal-close{
     position:absolute; top:18px; right:18px; width:34px; height:34px; border-radius:50%;
-    background:rgba(var(--rgb-soft),0.06); border:none; font-size:1.1rem; color:var(--text-on-light);
+    background:rgba(11,46,44,0.06); border:none; font-size:1.1rem; color:var(--text-on-light);
     cursor:pointer; display:flex; align-items:center; justify-content:center;
   }
-  .modal-close:hover{background:rgba(var(--rgb-soft),0.12);}
+  .modal-close:hover{background:rgba(11,46,44,0.12);}
   .modal-tag{
     font-size:0.72rem; letter-spacing:0.05em; text-transform:uppercase; color:var(--clay); font-weight:700;
     border:1px dashed rgba(181,88,60,0.4); padding:3px 9px; border-radius:5px; display:inline-block;
   }
-  .modal-panel h3{font-family:'Fraunces', serif; font-size:1.5rem; margin:12px 0 10px; max-width:22ch;}
-  .modal-panel p.modal-desc{color:var(--text-body); font-size:0.96rem; margin-bottom:18px;}
+  .modal-panel h3{font-family:'Poppins', sans-serif; font-size:1.5rem; margin:12px 0 10px; max-width:22ch;}
+  .modal-panel p.modal-desc{color:#3A4B49; font-size:0.96rem; margin-bottom:18px;}
   .modal-gallery{display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-bottom:20px;}
   .modal-photo{
-    aspect-ratio:4/3; border-radius:10px; border:1px dashed rgba(var(--rgb-soft),0.35);
-    background:repeating-linear-gradient(135deg, rgba(var(--rgb-soft),0.06), rgba(var(--rgb-soft),0.06) 10px, rgba(var(--rgb-soft),0.1) 10px, rgba(var(--rgb-soft),0.1) 20px);
+    aspect-ratio:4/3; border-radius:10px; border:1px dashed rgba(29,92,86,0.35);
+    background:repeating-linear-gradient(135deg, rgba(29,92,86,0.06), rgba(29,92,86,0.06) 10px, rgba(29,92,86,0.1) 10px, rgba(29,92,86,0.1) 20px);
     display:flex; align-items:center; justify-content:center; text-align:center;
-    font-size:0.72rem; color:var(--text-muted); padding:8px; line-height:1.3;
+    font-size:0.72rem; color:#5A6D6A; padding:8px; line-height:1.3;
   }
-  .modal-meta{display:flex; gap:22px; align-items:center; padding:14px 0; border-top:1px solid rgba(var(--rgb-soft),0.1); border-bottom:1px solid rgba(var(--rgb-soft),0.1); margin-bottom:22px;}
-  .modal-meta .dur{color:var(--text-muted); font-size:0.92rem;}
-  .modal-meta .price{font-weight:700; color:var(--clay); font-family:'Fraunces', serif; font-size:1.1rem;}
+  .modal-meta{display:flex; gap:22px; align-items:center; padding:14px 0; border-top:1px solid rgba(11,46,44,0.1); border-bottom:1px solid rgba(11,46,44,0.1); margin-bottom:22px;}
+  .modal-meta .dur{color:#5A6D6A; font-size:0.92rem;}
+  .modal-meta .price{font-weight:700; color:var(--clay); font-family:'Poppins', sans-serif; font-size:1.1rem;}
   .modal-actions{display:flex; gap:12px; flex-wrap:wrap;}
   .modal-book-form{display:none; flex-direction:column; gap:14px; margin-top:6px;}
   .modal-book-form.open{display:flex;}
-  .modal-book-form label{font-size:0.82rem; color:var(--text-body); margin-bottom:4px; display:block;}
+  .modal-book-form label{font-size:0.82rem; color:#3A4B49; margin-bottom:4px; display:block;}
   .modal-book-form input, .modal-book-form textarea{
-    width:100%; padding:12px 14px; border-radius:10px; border:1px solid rgba(var(--rgb-soft),0.18);
+    width:100%; padding:12px 14px; border-radius:10px; border:1px solid rgba(11,46,44,0.18);
     background:#fff; color:var(--text-on-light); font-family:'Inter', sans-serif; font-size:0.94rem;
   }
   .modal-book-form textarea{resize:vertical; min-height:70px;}
   .modal-form-row{display:grid; grid-template-columns:1fr 1fr; gap:14px;}
   @media (max-width:520px){ .modal-form-row{grid-template-columns:1fr;} }
-  .modal-promise{font-size:0.84rem; color:var(--text-muted); font-style:italic; margin-top:-2px;}
+  .modal-promise{font-size:0.84rem; color:#5A6D6A; font-style:italic; margin-top:-2px;}
   .modal-status{font-size:0.88rem; margin-top:8px; display:none;}
   .modal-status.show{display:block;}
   .modal-status.ok{color:var(--lake);}
@@ -498,7 +435,7 @@
   .back-link{font-size:0.85rem; color:var(--lake); font-weight:600; cursor:pointer; margin-bottom:14px; display:inline-block;}
 
   /* ---------- FOOTER ---------- */
-  footer{background:var(--ink); color:#7FA69F; padding:34px 0; font-size:0.85rem;}
+  footer{background:var(--ink); color:#C9A588; padding:34px 0; font-size:0.85rem;}
   .footer-grid{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;}
   footer a:hover{color:var(--brass-light);}
 
@@ -516,21 +453,14 @@
       <a href="#how">The deal</a>
       <a href="#contact">Say hi</a>
     </div>
-    <div class="nav-right">
-      <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Switch between day and night mode" title="Day / night mode">
-        <span class="theme-icon" id="theme-icon">☀</span>
-      </button>
-      <a class="nav-cta" href="#contact">See if I'm free</a>
-    </div>
+    <a class="nav-cta" href="#contact">See if I'm free</a>
   </nav>
 </header>
 
 <!-- ================= HERO ================= -->
 <section class="hero">
-  <div class="hero-scrim"></div>
-  <div class="stamp-badge"><span>Udaipur</span><span>local guide</span></div>
-  <div class="wrap">
-    <div class="hero-content">
+  <div class="wrap hero-grid">
+    <div>
       <div class="eyebrow">Born on this lake. Never left for long.</div>
       <h1>This city will ruin <em>other cities</em> for you</h1>
       <p class="lead">One local, one car, one very full day. I'll take you past the palace everyone photographs to the chai stall nobody does &mdash; sunrise on the ghats, a fort nobody Ubers to, and the best kachori in Rajasthan. Fight me on that last one.</p>
@@ -539,21 +469,41 @@
         <a class="btn btn-ghost" href="https://wa.me/916376091117?text=Hi!%20I%27d%20like%20to%20plan%20a%20day%20in%20Udaipur." target="_blank" rel="noopener">Message on WhatsApp</a>
       </div>
     </div>
-  </div>
 
-  <div class="hero-timeline-wrap">
-    <div class="wrap">
-      <div class="hero-timeline-head">
-        <span class="hero-timeline-kicker">A day, mapped over the lake</span>
-        <span class="scribble">this exact route, more times than I can count</span>
-      </div>
-      <div class="hero-timeline">
-        <div class="stop"><span class="time">7:00</span><span class="dot"></span><span class="label">Ghat &amp; boat</span></div>
-        <div class="stop"><span class="time">9:30</span><span class="dot"></span><span class="label">City Palace</span></div>
-        <div class="stop"><span class="time">12:30</span><span class="dot"></span><span class="label">Street food lane</span></div>
-        <div class="stop"><span class="time">15:30</span><span class="dot"></span><span class="label">Bazaar &amp; havelis</span></div>
-        <div class="stop"><span class="time">19:00</span><span class="dot"></span><span class="label">Sunset &amp; dinner</span></div>
-      </div>
+    <div class="arc-card">
+      <div class="stamp-badge"><span>Udaipur</span><span>local guide</span></div>
+      <div class="arc-label">A day, mapped over the lake</div>
+      <div class="arc-title">Sunrise on Pichola to dinner under the palace lights</div>
+      <div class="arc-note scribble">this exact route, more times than I can count</div>
+      <svg class="arc-svg" viewBox="0 0 460 220" xmlns="http://www.w3.org/2000/svg">
+        <path d="M 20 190 Q 230 -10 440 190" stroke="#C9926B" stroke-width="1.5" fill="none" stroke-dasharray="2 5"/>
+        <!-- stops along the arc -->
+        <g>
+          <circle cx="20" cy="190" r="4.5" fill="#F4A261"/>
+          <text x="20" y="172" class="arc-stop-time" text-anchor="middle">7:00</text>
+          <text x="20" y="208" class="arc-stop-label" text-anchor="middle">Ghat &amp; boat</text>
+        </g>
+        <g>
+          <circle cx="125" cy="88" r="4.5" fill="#F4A261"/>
+          <text x="125" y="70" class="arc-stop-time" text-anchor="middle">9:30</text>
+          <text x="125" y="106" class="arc-stop-label" text-anchor="middle">City Palace</text>
+        </g>
+        <g>
+          <circle cx="230" cy="35" r="5" fill="#F4A261"/>
+          <text x="230" y="17" class="arc-stop-time" text-anchor="middle">12:30</text>
+          <text x="230" y="53" class="arc-stop-label" text-anchor="middle">Street food lane</text>
+        </g>
+        <g>
+          <circle cx="335" cy="88" r="4.5" fill="#F4A261"/>
+          <text x="335" y="70" class="arc-stop-time" text-anchor="middle">15:30</text>
+          <text x="335" y="106" class="arc-stop-label" text-anchor="middle">Bazaar &amp; havelis</text>
+        </g>
+        <g>
+          <circle cx="440" cy="190" r="4.5" fill="#F4A261"/>
+          <text x="440" y="172" class="arc-stop-time" text-anchor="middle">19:00</text>
+          <text x="440" y="208" class="arc-stop-label" text-anchor="middle">Sunset &amp; dinner</text>
+        </g>
+      </svg>
     </div>
   </div>
 </section>
@@ -579,21 +529,26 @@
 
 <!-- ================= ABOUT ================= -->
 <section class="about reveal" id="about">
-  <div class="wrap">
-
-    <div class="about-top">
-      <div>
-        <div class="section-kicker">About me</div>
-        <h2>Hi, I'm Harry</h2>
-        <p>I grew up right here on the lake, and I've spent years since then guiding people through this city &mdash; the palaces everyone photographs, the food stalls most people walk straight past, and the quiet corners that make Udaipur feel like home rather than a checklist.</p>
-        <p>No script, no franchise, no handoffs between five different people in a day. Just me, a car, and a genuine love for this place &mdash; hoping every guest leaves feeling like they actually got to know the city, not just its postcards.</p>
+  <div class="wrap about-grid">
+    <div>
+      <div class="about-photo">
+        <div class="photo-placeholder">Photo: Harry</div>
       </div>
-      <div class="about-photo-big">Photo: Harry</div>
+      <div class="section-kicker">About me</div>
+      <h2>Hi, I'm Harry</h2>
+      <p>I grew up right here on the lake, and I've spent years since then guiding people through this city &mdash; the palaces everyone photographs, the food stalls most people walk straight past, and the quiet corners that make Udaipur feel like home rather than a checklist.</p>
+      <p>No script, no franchise, no handoffs between five different people in a day. Just me, a car, and a genuine love for this place &mdash; hoping every guest leaves feeling like they actually got to know the city, not just its postcards.</p>
+      <div class="honesty-wrap">
+        <span class="honesty-icon" aria-hidden="true">&#9888;</span>
+        <div class="honesty-note">
+          <span class="honesty-tag">One honest catch</span>
+          Fair warning: inside a handful of protected monuments (City Palace included), Indian law requires a government-certified guide to lead the walkthrough &mdash; not just me. On those days I bring in a certified colleague I work with regularly. You still get me for everything else, all day, no handoff.
+        </div>
+      </div>
     </div>
-
-    <div class="in-short-band">
+    <div class="credentials-frame">
       <div class="frame-label">In short</div>
-      <div class="in-short-grid">
+      <div class="credentials">
         <div class="cred">
           <div class="cred-dot">1</div>
           <div><h4>Local, born and raised</h4><p>Grew up exploring these same lanes and ghats, long before I ever guided anyone through them.</p></div>
@@ -611,22 +566,11 @@
           <div><h4>Backup for the fancy stuff</h4><p>Protected-monument guiding is handled by a government-certified colleague, booked in as part of your day, no extra chasing.</p></div>
         </div>
       </div>
-    </div>
-
-    <div class="about-bottom">
-      <div class="honesty-wrap">
-        <span class="honesty-icon" aria-hidden="true">&#9888;</span>
-        <div class="honesty-note">
-          <span class="honesty-tag">One honest catch</span>
-          Fair warning: inside a handful of protected monuments (City Palace included), Indian law requires a government-certified guide to lead the walkthrough &mdash; not just me. On those days I bring in a certified colleague I work with regularly. You still get me for everything else, all day, no handoff.
-        </div>
-      </div>
       <div class="promise-wrap">
         <span class="scribble dark">the promise &rarr;</span>
         <div class="promise-note">&ldquo;If I wouldn't take my own family there, it's not going on your itinerary either.&rdquo;</div>
       </div>
     </div>
-
   </div>
 </section>
 
@@ -650,7 +594,7 @@
         <div class="card-hint">View details &rarr;</div>
       </div>
 
-      <div class="card" data-tour="street-food" tabindex="0" role="button" aria-haspopup="dialog" onclick="openTour('street-food')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openTour('street-food');}">
+      <div class="card card-photo" style="--card-photo:url('https://images.unsplash.com/photo-1621334721541-370a13974de8?crop=entropy&cs=srgb&fm=jpg&q=80')" data-tour="street-food" tabindex="0" role="button" aria-haspopup="dialog" onclick="openTour('street-food')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openTour('street-food');}">
         <span class="tag">Local favourite</span>
         <h3>Street Food &amp; Snacks Trail</h3>
         <p>Chaat that'll ruin airport chaat forever, kachori still too hot to hold, mirchi bada that fights back, and the sweets stall locals actually queue at. Six-plus stops, stomach permitting.</p>
@@ -674,7 +618,7 @@
         <div class="card-hint">View details &rarr;</div>
       </div>
 
-      <div class="card" data-tour="full-day" tabindex="0" role="button" aria-haspopup="dialog" onclick="openTour('full-day')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openTour('full-day');}">
+      <div class="card card-photo" style="--card-photo:url('https://images.unsplash.com/photo-1589901164570-f9de6556e1c1?crop=entropy&cs=srgb&fm=jpg&q=80')" data-tour="full-day" tabindex="0" role="button" aria-haspopup="dialog" onclick="openTour('full-day')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openTour('full-day');}">
         <span class="tag">Anchor day</span>
         <h3>Full-Day City Tour</h3>
         <p>Everything the half-day covers, plus Sahelion ki Bari, Fateh Sagar, the bazaars, and a sunset boat ride that'll end up on your camera roll's greatest hits.</p>
@@ -682,7 +626,7 @@
         <div class="card-hint">View details &rarr;</div>
       </div>
 
-      <div class="card" data-tour="kumbhalgarh-ranakpur" tabindex="0" role="button" aria-haspopup="dialog" onclick="openTour('kumbhalgarh-ranakpur')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openTour('kumbhalgarh-ranakpur');}">
+      <div class="card card-photo" style="--card-photo:url('https://images.unsplash.com/photo-1672157932491-eb5df8e36994?crop=entropy&cs=srgb&fm=jpg&q=80')" data-tour="kumbhalgarh-ranakpur" tabindex="0" role="button" aria-haspopup="dialog" onclick="openTour('kumbhalgarh-ranakpur')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openTour('kumbhalgarh-ranakpur');}">
         <span class="tag">Day trip</span>
         <h3>Kumbhalgarh + Ranakpur</h3>
         <p>The world's second-longest wall and marble at Ranakpur Jain temple carved so fine it looks soft. A proper lunch stop included, because hangry tourists make bad decisions.</p>
@@ -706,7 +650,7 @@
         <div class="card-hint">View details &rarr;</div>
       </div>
 
-      <div class="card" data-tour="leopard-safari" tabindex="0" role="button" aria-haspopup="dialog" onclick="openTour('leopard-safari')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openTour('leopard-safari');}">
+      <div class="card card-photo" style="--card-photo:url('https://images.unsplash.com/photo-1782273706762-96f985ebc5ed?crop=entropy&cs=srgb&fm=jpg&q=80')" data-tour="leopard-safari" tabindex="0" role="button" aria-haspopup="dialog" onclick="openTour('leopard-safari')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openTour('leopard-safari');}">
         <span class="tag">Seasonal add-on</span>
         <h3>Leopard Safari</h3>
         <p>Sometimes tacked onto a Kumbhalgarh day when the timings line up. Ask when you enquire and I'll tell you straight whether it's a good week for it.</p>
@@ -760,17 +704,17 @@
 
   <div class="blast-track-wrap">
     <div class="blast-track" id="blast-track">
-      <div class="blast-card"><span class="blast-year">2018</span><p>&ldquo;Space reserved for a paraphrased memory from back then.&rdquo;</p><span class="blast-attr">&mdash; a past traveller</span></div>
-      <div class="blast-card"><span class="blast-year">2018</span><p>&ldquo;Another one goes here once the real snippets come in.&rdquo;</p><span class="blast-attr">&mdash; a past traveller</span></div>
-      <div class="blast-card"><span class="blast-year">2019</span><p>&ldquo;Placeholder &mdash; swap for a real, paraphrased line.&rdquo;</p><span class="blast-attr">&mdash; a past traveller</span></div>
-      <div class="blast-card"><span class="blast-year">2019</span><p>&ldquo;Old-review placeholder, waiting on the real snippets.&rdquo;</p><span class="blast-attr">&mdash; a past traveller</span></div>
-      <div class="blast-card"><span class="blast-year">2018</span><p>&ldquo;This card is a stand-in until you send the actual ones.&rdquo;</p><span class="blast-attr">&mdash; a past traveller</span></div>
+      <div class="blast-card"><div class="blast-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><span class="blast-year">2018</span><p>&ldquo;Space reserved for a paraphrased memory from back then.&rdquo;</p><div class="blast-footer"><span class="blast-avatar"></span><span class="blast-attr">&mdash; a past traveller</span></div></div>
+      <div class="blast-card"><div class="blast-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><span class="blast-year">2018</span><p>&ldquo;Another one goes here once the real snippets come in.&rdquo;</p><div class="blast-footer"><span class="blast-avatar"></span><span class="blast-attr">&mdash; a past traveller</span></div></div>
+      <div class="blast-card"><div class="blast-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><span class="blast-year">2019</span><p>&ldquo;Placeholder &mdash; swap for a real, paraphrased line.&rdquo;</p><div class="blast-footer"><span class="blast-avatar"></span><span class="blast-attr">&mdash; a past traveller</span></div></div>
+      <div class="blast-card"><div class="blast-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><span class="blast-year">2019</span><p>&ldquo;Old-review placeholder, waiting on the real snippets.&rdquo;</p><div class="blast-footer"><span class="blast-avatar"></span><span class="blast-attr">&mdash; a past traveller</span></div></div>
+      <div class="blast-card"><div class="blast-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><span class="blast-year">2018</span><p>&ldquo;This card is a stand-in until you send the actual ones.&rdquo;</p><div class="blast-footer"><span class="blast-avatar"></span><span class="blast-attr">&mdash; a past traveller</span></div></div>
       <!-- duplicate set for seamless loop -->
-      <div class="blast-card" aria-hidden="true"><span class="blast-year">2018</span><p>&ldquo;Space reserved for a paraphrased memory from back then.&rdquo;</p><span class="blast-attr">&mdash; a past traveller</span></div>
-      <div class="blast-card" aria-hidden="true"><span class="blast-year">2018</span><p>&ldquo;Another one goes here once the real snippets come in.&rdquo;</p><span class="blast-attr">&mdash; a past traveller</span></div>
-      <div class="blast-card" aria-hidden="true"><span class="blast-year">2019</span><p>&ldquo;Placeholder &mdash; swap for a real, paraphrased line.&rdquo;</p><span class="blast-attr">&mdash; a past traveller</span></div>
-      <div class="blast-card" aria-hidden="true"><span class="blast-year">2019</span><p>&ldquo;Old-review placeholder, waiting on the real snippets.&rdquo;</p><span class="blast-attr">&mdash; a past traveller</span></div>
-      <div class="blast-card" aria-hidden="true"><span class="blast-year">2018</span><p>&ldquo;This card is a stand-in until you send the actual ones.&rdquo;</p><span class="blast-attr">&mdash; a past traveller</span></div>
+      <div class="blast-card" aria-hidden="true"><div class="blast-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><span class="blast-year">2018</span><p>&ldquo;Space reserved for a paraphrased memory from back then.&rdquo;</p><div class="blast-footer"><span class="blast-avatar"></span><span class="blast-attr">&mdash; a past traveller</span></div></div>
+      <div class="blast-card" aria-hidden="true"><div class="blast-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><span class="blast-year">2018</span><p>&ldquo;Another one goes here once the real snippets come in.&rdquo;</p><div class="blast-footer"><span class="blast-avatar"></span><span class="blast-attr">&mdash; a past traveller</span></div></div>
+      <div class="blast-card" aria-hidden="true"><div class="blast-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><span class="blast-year">2019</span><p>&ldquo;Placeholder &mdash; swap for a real, paraphrased line.&rdquo;</p><div class="blast-footer"><span class="blast-avatar"></span><span class="blast-attr">&mdash; a past traveller</span></div></div>
+      <div class="blast-card" aria-hidden="true"><div class="blast-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><span class="blast-year">2019</span><p>&ldquo;Old-review placeholder, waiting on the real snippets.&rdquo;</p><div class="blast-footer"><span class="blast-avatar"></span><span class="blast-attr">&mdash; a past traveller</span></div></div>
+      <div class="blast-card" aria-hidden="true"><div class="blast-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><span class="blast-year">2018</span><p>&ldquo;This card is a stand-in until you send the actual ones.&rdquo;</p><div class="blast-footer"><span class="blast-avatar"></span><span class="blast-attr">&mdash; a past traveller</span></div></div>
     </div>
   </div>
 
@@ -814,13 +758,13 @@
 <section class="contact reveal" id="contact">
   <div class="wrap contact-grid">
     <div>
-      <div class="section-kicker" style="color:#BFE0DA;">Let's go</div>
+      <div class="section-kicker" style="color:#F4C89A;">Let's go</div>
       <h2>Let's plan your day in Udaipur</h2>
       <p class="lead">Fastest reply is on WhatsApp &mdash; I'm usually a few minutes away from my phone. If you'd rather use the form, I still reply within a few hours.</p>
       <div class="contact-methods">
-        <a class="cmethod" href="https://wa.me/916376091117?text=Hi!%20I%27d%20like%20to%20plan%20a%20day%20in%20Udaipur." target="_blank" rel="noopener">&#128241; WhatsApp &mdash; +91 63760 91117</a>
-        <a class="cmethod" href="mailto:harryknowsudaipur@gmail.com">&#9993; harryknowsudaipur@gmail.com</a>
-        <a class="cmethod" href="https://instagram.com/yourhandle" target="_blank" rel="noopener">&#128247; @yourhandle on Instagram</a>
+        <a class="cmethod" href="https://wa.me/916376091117?text=Hi!%20I%27d%20like%20to%20plan%20a%20day%20in%20Udaipur." target="_blank" rel="noopener"><span class="cmethod-icon wa">&#128241;</span> WhatsApp &mdash; +91 63760 91117</a>
+        <a class="cmethod" href="mailto:harryknowsudaipur@gmail.com"><span class="cmethod-icon em">&#9993;</span> harryknowsudaipur@gmail.com</a>
+        <a class="cmethod" href="https://instagram.com/yourhandle" target="_blank" rel="noopener"><span class="cmethod-icon ig">&#128247;</span> @yourhandle on Instagram</a>
       </div>
     </div>
 
@@ -899,7 +843,7 @@
       </div>
       <div class="modal-actions">
         <button class="btn btn-primary" type="button" style="border:none;" onclick="showBooking()">Book this tour &rarr;</button>
-        <a class="btn btn-ghost" style="color:var(--text-on-light); border-color:rgba(var(--rgb-soft),0.25);" href="https://wa.me/916376091117" target="_blank" rel="noopener">Ask a question on WhatsApp</a>
+        <a class="btn btn-ghost" style="color:var(--ink); border-color:rgba(11,46,44,0.25);" href="https://wa.me/916376091117" target="_blank" rel="noopener">Ask a question on WhatsApp</a>
       </div>
     </div>
 
@@ -943,38 +887,6 @@
 
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
-
-  // Day/night theme: defaults to the device's system preference,
-  // manual toggle overrides it for the rest of this visit (resets on reload,
-  // since this page intentionally avoids browser storage).
-  (function(){
-    var root = document.documentElement;
-    var btn = document.getElementById('theme-toggle');
-    var icon = document.getElementById('theme-icon');
-    var userOverride = false;
-    var mql = window.matchMedia ? window.matchMedia('(prefers-color-scheme: dark)') : null;
-
-    function applyTheme(theme){
-      root.setAttribute('data-theme', theme);
-      icon.textContent = theme === 'night' ? '☾' : '☀';
-    }
-
-    applyTheme(root.getAttribute('data-theme') || 'day');
-
-    btn.addEventListener('click', function(){
-      userOverride = true;
-      var next = root.getAttribute('data-theme') === 'night' ? 'day' : 'night';
-      applyTheme(next);
-    });
-
-    if(mql){
-      mql.addEventListener('change', function(e){
-        if(!userOverride){
-          applyTheme(e.matches ? 'night' : 'day');
-        }
-      });
-    }
-  })();
 
   var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var revealEls = document.querySelectorAll('.reveal');
