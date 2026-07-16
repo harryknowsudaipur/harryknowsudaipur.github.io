@@ -20,6 +20,8 @@
     --deep-blue:#134862;
     --near-black:#1C1917;
     --border:#E4DBC8;
+    --text-dark-strong:#EFEBE2;
+    --text-dark-soft:#C9BFB2;
     --radius:14px;
     --max:1180px;
   }
@@ -76,24 +78,24 @@
   .hero .wrap{position:relative; z-index:1;}
   .hero-tag{
     display:inline-block; font-size:0.68rem; font-weight:700; letter-spacing:0.14em; text-transform:uppercase;
-    color:#F0DDC4; border:1px solid rgba(240,221,196,0.4); border-radius:100px; padding:6px 16px; margin-bottom:22px;
+    color:var(--text-dark-strong); border:1px solid rgba(240,221,196,0.4); border-radius:100px; padding:6px 16px; margin-bottom:22px;
   }
   .hero h1{color:#fff; font-size:clamp(2.3rem,5vw,3.6rem); max-width:16ch; margin-bottom:20px;}
-  .hero h1 em{font-style:italic; color:#F0DDC4; font-weight:500;}
-  .hero p{color:#E8DFD0; font-size:1.05rem; max-width:52ch;}
+  .hero h1 em{font-style:italic; color:var(--text-dark-strong); font-weight:500;}
+  .hero p{color:var(--text-dark-soft); font-size:1.05rem; max-width:52ch;}
 
   /* ---------- TICKER ---------- */
   .ticker{background:var(--near-black); padding:13px 0; overflow:hidden; white-space:nowrap;}
   .ticker-track{display:inline-flex; width:max-content; animation:tickerScroll 40s linear infinite;}
   .ticker:hover .ticker-track{animation-play-state:paused;}
-  .ticker-item{font-size:0.72rem; letter-spacing:0.1em; text-transform:uppercase; color:#D9C9B4; font-weight:600; padding:0 30px; display:inline-flex; align-items:center; gap:30px; white-space:nowrap;}
+  .ticker-item{font-size:0.72rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--text-dark-soft); font-weight:600; padding:0 30px; display:inline-flex; align-items:center; gap:30px; white-space:nowrap;}
   .ticker-item::after{content:"\2022"; color:var(--red); }
   @keyframes tickerScroll{ from{transform:translateX(0);} to{transform:translateX(-50%);} }
   @media (prefers-reduced-motion: reduce){ .ticker{white-space:normal;} .ticker-track{animation:none; display:flex; flex-wrap:wrap; width:auto;} }
 
   /* ---------- CHAPTER SHARED ---------- */
   .chapter{padding:90px 0;}
-  .chapter-eyebrow{font-size:0.72rem; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:var(--red); margin-bottom:14px;}
+  .eyebrow{font-size:0.72rem; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:var(--red); margin-bottom:14px;}
   .chapter-head{display:flex; justify-content:space-between; align-items:flex-end; gap:24px; flex-wrap:wrap; margin-bottom:44px;}
   .chapter-head h2{font-size:clamp(1.7rem,3vw,2.3rem); max-width:20ch;}
   .chapter-head .chapter-note{font-size:0.9rem; color:var(--ink-soft); max-width:32ch;}
@@ -107,7 +109,7 @@
   .eat-meta{font-size:0.72rem; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; color:var(--red);}
 
   /* ---------- PULL QUOTE ---------- */
-  .pullquote{background:var(--deep-blue); padding:80px 0; text-align:center;}
+  .pullquote{background:var(--deep-blue); padding:90px 0; text-align:center;}
   .pullquote blockquote{
     font-family:'Fraunces', serif; font-style:italic; font-weight:500; color:#fff;
     font-size:clamp(1.3rem,2.6vw,1.9rem); line-height:1.5; max-width:44ch; margin:0 auto 20px;
@@ -133,14 +135,14 @@
   .skip-card p.instead{font-size:0.9rem; color:var(--ink-soft);}
 
   /* ---------- ABOUT (dark) ---------- */
-  .about-dark{background:var(--near-black); padding:90px 0; color:#EFEBE2;}
+  .about-dark{background:var(--near-black); padding:90px 0; color:var(--text-dark-strong);}
   .about-grid{display:grid; grid-template-columns:0.9fr 1.1fr; gap:56px; align-items:center;}
   @media (max-width:860px){ .about-grid{grid-template-columns:1fr;} }
   .about-photo-wrap{position:relative;}
   .about-photo-placeholder{
     aspect-ratio:4/5; border-radius:12px; border:1px dashed rgba(239,235,226,0.3);
     background:repeating-linear-gradient(135deg, rgba(239,235,226,0.04), rgba(239,235,226,0.04) 10px, rgba(239,235,226,0.07) 10px, rgba(239,235,226,0.07) 20px);
-    display:flex; align-items:center; justify-content:center; color:#B8AFA2; font-size:0.85rem;
+    display:flex; align-items:center; justify-content:center; color:var(--text-dark-soft); font-size:0.85rem;
   }
   .about-stat-badge{
     position:absolute; bottom:-18px; left:24px; background:var(--red); color:#fff;
@@ -148,16 +150,16 @@
   }
   .about-stat-badge .num{font-family:'Fraunces', serif; font-size:1.7rem; font-weight:700; line-height:1;}
   .about-stat-badge .label{font-size:0.62rem; letter-spacing:0.08em; text-transform:uppercase; margin-top:4px;}
-  .about-eyebrow{font-size:0.72rem; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:#D9A98C; margin-bottom:14px;}
-  .about-grid h2{color:#fff; font-size:clamp(1.7rem,3vw,2.2rem); max-width:16ch; margin-bottom:20px;}
-  .about-grid p{color:#C9BFB2; font-size:0.96rem; margin-bottom:16px; max-width:52ch;}
+  .eyebrow.eyebrow-on-dark{color:var(--red);}
+  .about-grid h2{color:#fff; font-size:clamp(1.7rem,3vw,2.3rem); max-width:16ch; margin-bottom:20px;}
+  .about-grid p{color:var(--text-dark-soft); font-size:0.96rem; margin-bottom:16px; max-width:52ch;}
   .about-ctas{display:flex; gap:14px; margin-top:24px; flex-wrap:wrap;}
   .btn{display:inline-flex; align-items:center; gap:8px; padding:13px 22px; border-radius:100px; font-weight:600; font-size:0.9rem; transition:transform .15s ease;}
   .btn:hover{transform:translateY(-1px);}
   .btn-primary{background:var(--red); color:#fff;}
   .btn-primary:hover{background:var(--red-dark);}
-  .btn-ghost-dark{border:1px solid rgba(239,235,226,0.35); color:#EFEBE2;}
-  .btn-ghost-dark:hover{border-color:#EFEBE2;}
+  .btn-ghost-dark{border:1px solid rgba(239,235,226,0.35); color:var(--text-dark-strong);}
+  .btn-ghost-dark:hover{border-color:var(--text-dark-strong);}
 
   /* ---------- TOUR LIST ---------- */
   .tours-section{padding:90px 0;}
@@ -174,25 +176,26 @@
   .tours-cta .alt-contact a{color:var(--red); text-decoration:underline;}
 
   /* ---------- BLAST FROM THE PAST ---------- */
-  .blast{background:var(--sand-dim); padding:80px 0;}
-  .blast-eyebrow{font-size:0.72rem; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:var(--red); margin-bottom:30px; text-align:center;}
-  .blast-grid{display:grid; grid-template-columns:1fr 1fr; gap:26px; max-width:900px; margin:0 auto;}
-  @media (max-width:700px){ .blast-grid{grid-template-columns:1fr;} }
+  .blast{background:var(--sand-dim); padding:90px 0;}
+  .eyebrow.eyebrow-center{margin-bottom:30px; text-align:center;}
+  .blast-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:22px; max-width:1080px; margin:0 auto;}
+  @media (max-width:900px){ .blast-grid{grid-template-columns:1fr 1fr;} }
+  @media (max-width:600px){ .blast-grid{grid-template-columns:1fr;} }
   .blast-card{background:var(--sand); border:1px solid var(--border); border-radius:12px; padding:26px;}
   .blast-card p{font-family:'Fraunces', serif; font-style:italic; font-size:1.02rem; color:var(--ink); line-height:1.5; margin-bottom:14px;}
   .blast-attr{font-size:0.8rem; color:var(--ink-soft); font-weight:600;}
 
   /* ---------- CONTACT ---------- */
-  .contact{padding:90px 0; background:var(--near-black); color:#EFEBE2;}
+  .contact{padding:90px 0; background:var(--near-black); color:var(--text-dark-strong);}
   .contact-grid{display:grid; grid-template-columns:1fr 1fr; gap:56px;}
   @media (max-width:840px){ .contact-grid{grid-template-columns:1fr;} }
-  .contact h2{color:#fff; font-size:clamp(1.7rem,3vw,2.2rem); max-width:16ch;}
-  .contact p.lead{color:#C9BFB2; margin-top:14px; max-width:44ch; font-size:0.96rem;}
+  .contact h2{color:#fff; font-size:clamp(1.7rem,3vw,2.3rem); max-width:16ch;}
+  .contact p.lead{color:var(--text-dark-soft); margin-top:14px; max-width:44ch; font-size:0.96rem;}
   form{display:flex; flex-direction:column; gap:14px; margin-top:10px;}
-  label{font-size:0.8rem; color:#C9BFB2; margin-bottom:4px; display:block;}
+  label{font-size:0.8rem; color:var(--text-dark-soft); margin-bottom:4px; display:block;}
   input, select, textarea{
     width:100%; padding:13px 14px; border-radius:10px; border:1px solid rgba(239,235,226,0.2);
-    background:rgba(239,235,226,0.05); color:#EFEBE2; font-family:'Inter', sans-serif; font-size:0.94rem;
+    background:rgba(239,235,226,0.05); color:var(--text-dark-strong); font-family:'Inter', sans-serif; font-size:0.94rem;
   }
   input::placeholder, textarea::placeholder{color:#8A8075;}
   textarea{resize:vertical; min-height:80px;}
@@ -200,15 +203,15 @@
   @media (max-width:520px){ .form-row{grid-template-columns:1fr;} }
   button.submit{
     margin-top:4px; background:var(--red); color:#fff; border:none;
-    padding:15px 20px; border-radius:10px; font-weight:700; font-size:0.96rem; cursor:pointer;
+    padding:15px 20px; border-radius:100px; font-weight:700; font-size:0.96rem; cursor:pointer;
   }
   button.submit:hover{background:var(--red-dark);}
   .form-note{font-size:0.78rem; color:#8A8075; margin-top:-4px;}
 
   /* ---------- FOOTER ---------- */
-  footer{background:#141110; color:#8A8075; padding:40px 0; font-size:0.85rem;}
+  footer{background:var(--near-black); color:#8A8075; padding:40px 0; font-size:0.85rem;}
   .footer-grid{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;}
-  .footer-brand{color:#EFEBE2; font-family:'Fraunces', serif; font-weight:600; margin-bottom:4px;}
+  .footer-brand{color:var(--text-dark-strong); font-family:'Fraunces', serif; font-weight:600; margin-bottom:4px;}
   .footer-tag{font-size:0.72rem; letter-spacing:0.08em; text-transform:uppercase;}
   .footer-links{display:flex; gap:20px; font-size:0.85rem;}
   .footer-links a:hover{color:var(--red);}
@@ -225,7 +228,9 @@
       <a href="#eat">Eat</a>
       <a href="#wander">Wander</a>
       <a href="#skip">Skip</a>
+      <a href="#about">About</a>
       <a href="#tours">Tours with Harry</a>
+      <a href="#contact">Say hi</a>
     </div>
   </nav>
 </header>
@@ -260,7 +265,7 @@
   <div class="wrap">
     <div class="chapter-head">
       <div>
-        <div class="chapter-eyebrow">Chapter 01 &middot; Eat</div>
+        <div class="eyebrow">Chapter 01 &middot; Eat</div>
         <h2>Where I actually eat, when nobody's watching.</h2>
       </div>
       <p class="chapter-note">Three of about thirty. The full list travels with me &mdash; ask on the food trail and I'll walk you through it.</p>
@@ -301,7 +306,7 @@
   <div class="wrap">
     <div class="chapter-head">
       <div>
-        <div class="chapter-eyebrow">Chapter 02 &middot; Wander</div>
+        <div class="eyebrow">Chapter 02 &middot; Wander</div>
         <h2>Corners of the old city the map app doesn't know about.</h2>
       </div>
     </div>
@@ -331,7 +336,7 @@
   <div class="wrap">
     <div class="chapter-head">
       <div>
-        <div class="chapter-eyebrow">Chapter 03 &middot; Skip</div>
+        <div class="eyebrow">Chapter 03 &middot; Skip</div>
         <h2>And the ones I'd quietly steer you away from.</h2>
       </div>
     </div>
@@ -366,7 +371,7 @@
       <div class="about-stat-badge"><div class="num">7+</div><div class="label">Years on the ground</div></div>
     </div>
     <div>
-      <div class="about-eyebrow">Hi, I'm Harry</div>
+      <div class="eyebrow eyebrow-on-dark">Hi, I'm Harry</div>
       <h2>The one who actually picks up the phone.</h2>
       <p>I built city-tour operations from scratch for a travel startup in 2018&ndash;19, then ran ops elsewhere for seven years. Came home when I realised the version of Udaipur being sold to visitors barely resembles the one I grew up in.</p>
       <p>Harry Knows Udaipur is just me. I guide, I drive-arrange with licensed local drivers, I photograph your day if you'd like, and I partner with certified guides at the ASI monuments that legally require one. No agency, no handoff, no commission games.</p>
@@ -383,7 +388,7 @@
   <div class="wrap">
     <div class="chapter-head">
       <div>
-        <div class="chapter-eyebrow">Tours with Harry</div>
+        <div class="eyebrow">Tours with Harry</div>
         <h2>Nine private tours. All of them, still just me.</h2>
       </div>
     </div>
@@ -408,15 +413,31 @@
 <!-- ================= BLAST FROM THE PAST ================= -->
 <section class="blast reveal">
   <div class="wrap">
-    <div class="blast-eyebrow">Blast from the past</div>
+    <div class="eyebrow eyebrow-center">Blast from the past</div>
     <div class="blast-grid">
       <div class="blast-card">
-        <p>&ldquo;Space reserved for a paraphrased memory from a 2018 guest &mdash; real snippets go here once sent.&rdquo;</p>
-        <div class="blast-attr">&mdash; a past traveller</div>
+        <p>&ldquo;A group of friends called him the best guide they'd had, full of stories about India and Udaipur, and happy to help with anything they needed.&rdquo;</p>
+        <div class="blast-attr">&mdash; Alba &amp; friends</div>
       </div>
       <div class="blast-card">
-        <p>&ldquo;Second placeholder, same rule: anonymised and paraphrased, not copy-pasted from someone else's TripAdvisor page.&rdquo;</p>
-        <div class="blast-attr">&mdash; a past traveller</div>
+        <p>&ldquo;A couple said he patiently answered every question about India's history and religions, adapting the day as things came up.&rdquo;</p>
+        <div class="blast-attr">&mdash; Massi</div>
+      </div>
+      <div class="blast-card">
+        <p>&ldquo;A solo traveller said he was full of stories and facts, and clearly knew his subject inside out.&rdquo;</p>
+        <div class="blast-attr">&mdash; Andy, UK</div>
+      </div>
+      <div class="blast-card">
+        <p>&ldquo;On the food trail, a couple said the pace was relaxed and the stops were picked around their own tastes &mdash; a genuine window into Rajasthani cuisine.&rdquo;</p>
+        <div class="blast-attr">&mdash; Matt, India</div>
+      </div>
+      <div class="blast-card">
+        <p>&ldquo;One couple appreciated the mix of history and everyday city life, calling him friendly and full of useful tips on where to eat.&rdquo;</p>
+        <div class="blast-attr">&mdash; Gun, USA</div>
+      </div>
+      <div class="blast-card">
+        <p>&ldquo;A group of friends said his energy and enthusiasm made the walk memorable, and that his food recommendations were spot on.&rdquo;</p>
+        <div class="blast-attr">&mdash; Claire, UK</div>
       </div>
     </div>
   </div>
@@ -426,6 +447,7 @@
 <section class="contact reveal" id="contact">
   <div class="wrap contact-grid">
     <div>
+      <div class="eyebrow">Say hi</div>
       <h2>Plan your day in Udaipur</h2>
       <p class="lead">WhatsApp is fastest &mdash; I'm usually a few minutes from my phone. Prefer a form? This lands straight in my inbox with your email and number.</p>
     </div>
