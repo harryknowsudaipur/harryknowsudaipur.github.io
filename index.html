@@ -101,8 +101,9 @@
   .chapter-head .chapter-note{font-size:0.9rem; color:var(--ink-soft); max-width:32ch;}
 
   /* ---------- EAT CARDS ---------- */
-  .eat-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:26px;}
+  .eat-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:26px; align-items:stretch;}
   @media (max-width:860px){ .eat-grid{grid-template-columns:1fr;} }
+  .eat-card{display:flex; flex-direction:column; height:100%;}
   .eat-photo{aspect-ratio:4/3; border-radius:10px; background-size:cover; background-position:center; margin-bottom:16px;}
   .eat-photo-carousel{
     position:relative; aspect-ratio:4/3; border-radius:10px; margin-bottom:16px; overflow:hidden;
@@ -127,7 +128,7 @@
   .eat-card p{font-size:0.92rem; color:var(--ink-soft); margin-bottom:12px;}
   .eat-meta{font-size:0.72rem; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; color:var(--red);}
   .eat-alt{
-    margin-top:14px; padding-top:12px; border-top:1px dashed var(--border);
+    margin-top:auto; padding-top:12px; border-top:1px dashed var(--border);
     display:flex; gap:8px; align-items:flex-start;
   }
   .eat-alt-icon{flex-shrink:0; color:var(--red); font-size:0.9rem; line-height:1.4;}
@@ -313,7 +314,7 @@
         <div class="eat-photo-carousel">
           <img src="rayta-hills-1.jpg" alt="Misty green hills at Rayta during monsoon" loading="lazy">
           <img src="rayta-hills-2.jpg" alt="The climb up to the ridge at Rayta Hills" loading="lazy">
-          <img src="rayta-hills-3.jpg" alt="Chai on the ridge overlooking the valley at Rayta Hills" loading="lazy">
+          <img src="rayta-hills-3.png" alt="Chai on the ridge overlooking the valley at Rayta Hills" loading="lazy">
         </div>
         <h3>Chai at Rayta Hills</h3>
         <p>Twenty-five minutes out of the city and the hills turn into something else entirely &mdash; mist over the ridges, wet earth, actual quiet. We climb about half an hour to a ridge, and that's where the chai happens. No stall, no menu &mdash; I carry the thermos.</p>
